@@ -1,0 +1,92 @@
+-
+  const fplAppModalDetails = [
+      {
+        id: 'fplApp1',
+        src: 'http://res.cloudinary.com/dhivuot1n/image/upload/v1533592698/fpl_app_fe_homepage_yezdpn.png',
+        alt: 'Fpl App Fe Homepage',
+      },
+      {
+        id: 'fplApp2',
+        src: 'http://res.cloudinary.com/dhivuot1n/image/upload/v1533597411/fpl_app_fe_team_view_nirrkc.png',
+        alt: 'Fpl App Fe Team View',
+      },
+
+      {
+        id: 'fplApp3',
+        src: 'http://res.cloudinary.com/dhivuot1n/image/upload/v1533651745/fpl_app_player_view_mzx5rq.png',
+        alt: 'Fpl App Fe Player View',
+      }
+    ]
+
+mixin fplAppModal(id, src, alt)
+  .portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true' id= id)
+    .modal-dialog(role='document')
+      .modal-content
+        .close-modal(data-dismiss='modal')
+          .lr
+            .rl
+        .container
+          .row
+            .modal-body
+              .title-bar
+                .col-md-12
+                  h2.text-center
+                    a(href='https://fpl-app-fe.herokuapp.com/') Fpl App
+                  .heading-border
+              .row
+                .col-md-6
+                  img.img-fluid.img-centered(
+                    src= src,
+                    alt= alt
+                  )
+                .col-md-6
+                  p
+                    | An English Premier League (EPL) drafting app based on the #{''}
+                    a(href='https://fantasy.premierleague.com/') Fantasy Premier League (FPL)
+                    | .
+                    | It consists of a Rails API
+                    |
+                    a(href='https://github.com/djstozza/fpl_app_api') back-end
+                    |
+                    | and a React/Redux #{' '}
+                    a(href='https://github.com/djstozza/fpl-app-fe') front-end
+                    | .
+                  p
+                    | Users are able to create their own leagues and challenge their friends to see who is the
+                    | ultimate fantasy manager by drafting and trading EPL stars.
+                  p
+                    | The back-end uses background workers to update data obtained from the #{''}
+                    a(href='https://fantasy.premierleague.com/drf/bootstrap-static') FPL API
+                    |
+                    | including player points, team scores, match results and gametimes before updating
+                    | the front-end via Action Cable.
+                  ul.list-inline.item-details
+                    li
+                      .row
+                        .col-1.col-md-2
+                          i.fab.fa-github
+                        .col-11.col-md-10
+                          a(
+                            href='https://github.com/djstozza/fpl_app_api',
+                            target='_blank', rel='noopener noreferrer'
+                          )
+                            | Fpl App Api
+                          | ,
+                          a(href='https://github.com/djstozza/fpl-app-fe', target='_blank', rel='noopener noreferrer')
+                            | Fpl App Fe
+                    li
+                      .row
+                        .col-1.col-md-2
+                          i.fas.fa-cogs
+                        .col-11.col-md-10
+                          | Ruby on Rails, React, NPM, Redux, Devise Token Auth, Moment.js, Lodash,
+                          | Redis, Action Cable, Moment.js, Bootstrap, React Bootstrap Table 2
+                    li
+                      .row
+                        .col-1.col-md-2
+                          i.far.fa-file
+                        .col-11.col-md-10
+                          a(href='https://fpl-app-fe.herokuapp.com/', target='_blank', rel='noopener noreferrer')
+                            | Fpl App
+each detail in fplAppModalDetails
+  +fplAppModal(detail.id, detail.src, detail.alt)
