@@ -1,4 +1,5 @@
 const createError = require('http-errors');
+const compression = require('compression');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -11,6 +12,7 @@ require('dotenv').config();
 var indexRouter = require('./routes/index');
 
 var app = express();
+app.use(compression());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
