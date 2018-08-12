@@ -13,7 +13,6 @@ require('dotenv').config();
 var indexRouter = require('./routes/index');
 
 var app = express();
-app.use(compression());
 
 app.use(minifyHTML({
     override: true,
@@ -27,6 +26,8 @@ app.use(minifyHTML({
       minifyJS: true
     }
 }));
+
+app.use(compression());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
