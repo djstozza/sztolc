@@ -5,6 +5,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const nodemailer = require('nodemailer');
+const minifyHTML = require('express-minify-html');
 const { check, validationResult } = require('express-validator/check');
 
 require('dotenv').config();
@@ -13,6 +14,19 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 app.use(compression());
+
+app.use(minifyHTML({
+    override: true,
+    exception_url: false,
+    htmlMinifier: {
+      removeComments: true,
+      collapseWhitespace: true,
+      collapseBooleanAttributes: true,
+      removeAttributeQuotes: true,
+      removeEmptyAttributes: true,
+      minifyJS: true
+    }
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
