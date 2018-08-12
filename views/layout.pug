@@ -6,11 +6,12 @@ html(lang='en')
     meta(name='description', content='Portfolio')
     meta(name='author', content='Daniel Sztolcman')
     title Sztolc.com
+    style(type="text/css")
+      include components/above_fold_css.css
   body#page-top
     block content
     
     //- Global stylesheets
-    link(rel='stylesheet', href='/stylesheets/above.css')
     link(rel='stylesheet', href='/stylesheets/below.css')
     link(rel='stylesheet' href='/stylesheets/bootstrap.min.css')
     link(

@@ -21,46 +21,46 @@ gulp.task('styles:below', function () {
 gulp.task('styles:above', function () {
   return gulp.src('source/scss/above.scss')
     .pipe(sassGlob())
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(gulp.dest('./public/css/'))
     .pipe(browserSync.stream())
-    .pipe(rename('above_fold_css.hbs'))
+    .pipe(rename('above_fold_css.css'))
     .pipe(gulp.dest('./views/components/'))
 })
 
-gulp.task('scripts', function () {
-  return gulp.src('source/js/custom.js')
-    .pipe(gulpWebpack({
-      output: {
-        filename: 'custom.js',
-      },
-      module: {
-        loaders: [{
-          test: /\.js$/,
-          loader: 'babel-loader'
-        }]
-      },
-      plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            warnings: false,
-          },
-          output: {
-            comments: false,
-          }
-        })
-      ]
-    }, webpack))
-    .pipe(gulp.dest('public/js'))
-    .pipe(browserSync.stream())
-})
+// gulp.task('scripts', function () {
+//   return gulp.src('source/js/custom.js')
+//     .pipe(gulpWebpack({
+//       output: {
+//         filename: 'custom.js',
+//       },
+//       module: {
+//         loaders: [{
+//           test: /\.js$/,
+//           loader: 'babel-loader'
+//         }]
+//       },
+//       plugins: [
+//         new webpack.optimize.UglifyJsPlugin({
+//           compress: {
+//             warnings: false,
+//           },
+//           output: {
+//             comments: false,
+//           }
+//         })
+//       ]
+//     }, webpack))
+//     .pipe(gulp.dest('public/js'))
+//     .pipe(browserSync.stream())
+// })
 
 gulp.task('browsersync', ['nodemon'], function () {
   browserSync({
-    port: 3000,
+    port: 3001,
     serveStatic: ['./public'],
     proxy: {
-      target: 'http://localhost:3000'
+      target: 'http://localhost:3001'
     },
     reloadDelay: 500,
     notify: true,
@@ -68,10 +68,8 @@ gulp.task('browsersync', ['nodemon'], function () {
     logLevel: 'silent'
   })
 
-  // gulp.watch('views/**/*.hbs', ['scripts'])
   gulp.watch(['source/scss/components/above/**/*.scss', 'source/scss/above.scss', 'source/scss/_variables.scss'], ['styles:above'])
   gulp.watch(['source/scss/components/below/**/*.scss', 'source/scss/below.scss', 'source/scss/_variables.scss'], ['styles:below'])
-  gulp.watch('source/js/**/*.js', ['scripts'])
 })
 
 gulp.task('nodemon', function (cb) {
@@ -81,4 +79,4 @@ gulp.task('nodemon', function (cb) {
   }).once('start', cb)
 })
 
-gulp.task('default', ['styles:above', 'styles:below', 'scripts', 'browsersync'])
+gulp.task('default', ['styles:above', 'styles:below', 'browsersync'])
