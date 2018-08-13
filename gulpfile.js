@@ -10,14 +10,6 @@ const rename = require('gulp-rename');
 const nodemon = require('gulp-nodemon');
 const reload = browserSync.reload
 
-gulp.task('styles:below', function () {
-  return gulp.src('source/scss/below.scss')
-    .pipe(sassGlob())
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(gulp.dest('./public/stylesheets/'))
-    .pipe(browserSync.stream())
-})
-
 gulp.task('styles:above', function () {
   return gulp.src('source/scss/above.scss')
     .pipe(sassGlob())
@@ -26,6 +18,14 @@ gulp.task('styles:above', function () {
     .pipe(browserSync.stream())
     .pipe(rename('above_fold_css.css'))
     .pipe(gulp.dest('./views/components/'))
+})
+
+gulp.task('styles', function () {
+  return gulp.src('source/scss/style.scss')
+    .pipe(sassGlob())
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(gulp.dest('./public/stylesheets/'))
+    .pipe(browserSync.stream())
 })
 
 // gulp.task('scripts', function () {
@@ -68,8 +68,8 @@ gulp.task('browsersync', ['nodemon'], function () {
     logLevel: 'silent'
   })
 
-  gulp.watch(['source/scss/components/above/**/*.scss', 'source/scss/above.scss', 'source/scss/_variables.scss'], ['styles:above'])
-  gulp.watch(['source/scss/components/below/**/*.scss', 'source/scss/below.scss', 'source/scss/_variables.scss'], ['styles:below'])
+  gulp.watch(['source/scss/above.scss'], ['styles:above'])
+  gulp.watch(['source/scss/style.scss'], ['styles'])
 })
 
 gulp.task('nodemon', function (cb) {
@@ -79,4 +79,4 @@ gulp.task('nodemon', function (cb) {
   }).once('start', cb)
 })
 
-gulp.task('default', ['styles:above', 'styles:below', 'browsersync'])
+gulp.task('default', ['styles:above', 'styles', 'browsersync'])
