@@ -22,16 +22,16 @@ mixin fplAppModal(id, src, alt)
   .portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true' id= id)
     .modal-dialog(role='document')
       .modal-content
-        .close-modal(data-dismiss='modal')
-          .lr
-            .rl
-        .container
+        .container.my-auto
           .row
             .modal-body
               .title-bar
                 .col-md-12
                   h2.text-center
-                    a(href='https://fpl-app-fe.herokuapp.com/') Fpl App
+                    a.ml-md-5.pl-md-4(href='https://fpl-app-fe.herokuapp.com/') Fpl App
+                    .float-right.d-none.d-md-block.close-modal(data-dismiss='modal')
+                      .lr
+                        .rl
                   .heading-border
               .row
                 .col-md-6
@@ -88,5 +88,8 @@ mixin fplAppModal(id, src, alt)
                         .col-11.col-md-10
                           a(href='https://fpl-app-fe.herokuapp.com/', target='_blank', rel='noopener noreferrer')
                             | Fpl App
+                  button.btn.btn-general.btn-white.d-md-none(type='button' data-dismiss='modal')
+                    i.fa.fa-times
+                    |  Close
 each detail in fplAppModalDetails
   +fplAppModal(detail.id, detail.src, detail.alt)
