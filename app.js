@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const nodemailer = require('nodemailer');
 const minifyHTML = require('express-minify-html');
+const helmet = require('helmet');
 const { check, validationResult } = require('express-validator/check');
 
 require('dotenv').config();
@@ -14,6 +15,7 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
+app.use(helmet());
 app.use(minifyHTML({
     override: true,
     exception_url: false,
