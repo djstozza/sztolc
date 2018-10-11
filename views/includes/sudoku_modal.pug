@@ -1,0 +1,79 @@
+-
+  const sudokuModalDetails = [
+      {
+        id: 'sudoku1',
+        src: 'https://a.storyblok.com/f/47130/1666x1275/e912440745/sudoku-1.jpg',
+        alt: 'MEAN Sudoku Board',
+      },
+      {
+        id: 'sudoku2',
+        src: 'https://a.storyblok.com/f/47130/1666x1234/4cc5e30fae/sudoku-2.jpg',
+        alt: 'MEAN Sudoku Board Completed',  
+      },
+
+      {
+        id: 'sudoku3',
+        src: 'https://a.storyblok.com/f/47130/1666x1234/1cf31e8891/sudoku-3.jpg',
+        alt: 'MEAN Sudoku Score Table',
+      }
+    ]
+
+mixin sudokuModal(id, src, alt)
+  .portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true' id= id)
+    .modal-dialog(role='document')
+      .modal-content
+        .container.my-auto
+          .row
+            .modal-body
+              .title-bar
+                .col-md-12
+                  h2.text-center
+                    a.ml-md-5.pl-md-4(href='https://mean-sudoku.herokuapp.com/') MEAN Sudoku
+                    .float-right.d-none.d-md-block.close-modal(data-dismiss='modal')
+                      .lr
+                        .rl
+                  .heading-border
+              .row
+                .col-md-6
+                  img.img-fluid.img-centered(
+                    src= src,
+                    alt= alt
+                  )
+                .col-md-6
+                  p
+                    | A sudoku puzzle generator build with a MongoDB, Express.js, Angular 6 and Node.js (MEAN) stack.
+                  p
+                    | Users are able to choose the difficulty of the puzzle they're trying to solve: from Easy to 
+                    | Insane. They are then able to submit the time it took to solve a puzzle upon its completion, 
+                    | which is stored with MongoDB.
+
+                  ul.list-inline.item-details
+                    li
+                      .row
+                        .col-1.col-md-2
+                          i.fab.fa-github
+                        .col-11.col-md-10
+                          a(
+                            href='https://github.com/djstozza/sudoku',
+                            target='_blank', rel='noopener noreferrer'
+                          )
+                            | MEAN Sudoku
+      
+                    li
+                      .row
+                        .col-1.col-md-2
+                          i.fas.fa-cogs
+                        .col-11.col-md-10
+                          | Angular 6, Express.js, Node.js, MongoDB, Angular Material2, NPM, Jasmine, Karma, Protractor
+                    li
+                      .row
+                        .col-1.col-md-2
+                          i.far.fa-file
+                        .col-11.col-md-10
+                          a(href='https://mean-sudoku.herokuapp.com/', target='_blank', rel='noopener noreferrer')
+                            | MEAN Sudoku
+                  button.btn.btn-general.btn-white.d-md-none(type='button' data-dismiss='modal')
+                    i.fa.fa-times
+                    |  Close
+each detail in sudokuModalDetails
+  +sudokuModal(detail.id, detail.src, detail.alt)
