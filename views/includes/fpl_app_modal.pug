@@ -28,7 +28,12 @@ mixin fplAppModal(id, src, alt)
               .title-bar
                 .col-md-12
                   h2.text-center
-                    a.ml-md-5.pl-md-4(href='https://fpl-app-fe.herokuapp.com/') Fpl App
+                    a.ml-md-5.pl-md-4(
+                      href='https://fpl-app-fe.herokuapp.com/',
+                      target='_blank',
+                      rel='noopener noreferrer'
+                    )
+                      | Fpl App
                     .float-right.d-none.d-md-block.close-modal(data-dismiss='modal')
                       .lr
                         .rl

@@ -28,7 +28,12 @@ mixin sudokuModal(id, src, alt)
               .title-bar
                 .col-md-12
                   h2.text-center
-                    a.ml-md-5.pl-md-4(href='https://mean-sudoku.herokuapp.com/') MEAN Sudoku
+                    a.ml-md-5.pl-md-4(
+                      href='https://mean-sudoku.herokuapp.com/',
+                      target='_blank',
+                      rel='noopener noreferrer'
+                    )
+                      | MEAN Sudoku
                     .float-right.d-none.d-md-block.close-modal(data-dismiss='modal')
                       .lr
                         .rl
