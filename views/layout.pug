@@ -10,7 +10,14 @@ html(lang='en')
     
     style(type="text/css")
       include components/above_fold_css.css
+    script.
+      window.addEventListener("load", function(){
+        const loadScreen = document.getElementById("load-screen");
+        document.body.removeChild(loadScreen);
+      });
   body#page-top
+    #load-screen
+      .spinner
     block content
     
     //- Global stylesheets

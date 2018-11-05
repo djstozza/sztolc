@@ -67,4 +67,4 @@ gulp.task('nodemon', function (cb) {
   }).once('start', cb);
 });
 
-gulp.task('default', ['styles:above', 'styles', 'js', 'browsersync']);
+gulp.task('default', ['styles:above', 'styles', 'browsersync']);
