@@ -16,7 +16,7 @@ gulp.task('styles:above', function () {
   return gulp.src('source/scss/above.scss')
     .pipe(sassGlob())
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(gulp.dest('./public/css/'))
+    .pipe(gulp.dest('./public/stylesheets/'))
     .pipe(browserSync.stream())
     .pipe(rename('above_fold_css.css'))
     .pipe(gulp.dest('./views/components/'))

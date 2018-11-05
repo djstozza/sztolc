@@ -48,6 +48,13 @@
   overflow: hidden;
   background-image: url("https://a.storyblok.com/f/47130/641x641/e8979a4aaf/about.jpg");
   height: 640px;
+  background-color: #000;
   background-position: center center;
   background-repeat: no-repeat;
+
+  .about-text {
+    max-width: 500px;
+    text-align: justify;
+    text-justify: inter-word;
+  }
 }
