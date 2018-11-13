@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const blok = require('gulp-blok');
 const watch = require('gulp-watch');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
