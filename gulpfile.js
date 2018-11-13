@@ -41,7 +41,14 @@ gulp.task('js', function (cb) {
   );
 });
 
-gulp.task('browsersync', ['nodemon'], function () {
+gulp.task('nodemon', function (cb) {
+  return nodemon({
+    script: 'app.js',
+    watch: ['app.js'],
+  }).once('start', cb);
+});
+
+gulp.task('browsersync', gulp.series('nodemon'), function () {
   browserSync({
     port: 3001,
     serveStatic: ['./public'],
@@ -59,11 +66,4 @@ gulp.task('browsersync', ['nodemon'], function () {
   gulp.watch(['source/scss/custom.js'], ['js']);
 });
 
-gulp.task('nodemon', function (cb) {
-  return nodemon({
-    script: 'app.js',
-    watch: ['app.js'],
-  }).once('start', cb);
-});
-
-gulp.task('default', ['styles:above', 'styles', 'browsersync']);
+gulp.task('default', gulp.series(gulp.parallel('styles:above', 'styles', 'browsersync', 'js')));
