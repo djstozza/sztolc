@@ -21,6 +21,7 @@
     "http-errors": "~1.7.1",
     "jquery": "^3.3.1",
     "jquery.easing": "^1.4.1",
+    "lozad": "^1.7.0",
     "morgan": "^1.9.1",
     "natives": "^1.1.6",
     "nodemailer": "^4.6.8",

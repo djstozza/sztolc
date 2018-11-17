@@ -81,4 +81,7 @@ const sendMail = () => {
 $(document).ready(() => {
   smoothScrolling();
   sendMail();
+
+  var observer = lozad(); // lazy loads elements with default selector as '.lozad'
+  observer.observe();
 });
