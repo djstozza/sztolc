@@ -4,8 +4,8 @@ block content
   nav#sideNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
     a.navbar-brand.js-scroll-trigger(href='#page-top')
       span.d-none.d-lg-block
-        img.img-fluid.img-profile.rounded-circle.mx-auto.mb-2(
-          src='https://a.storyblok.com/f/47130/145x160/a01cd54766/profile-picture.jpg',
+        img.img-fluid.img-profile.rounded-circle.mx-auto.mb-2.lozad(
+          data-src='https://a.storyblok.com/f/47130/145x160/a01cd54766/profile-picture.jpg',
           alt='Profile Picture'
         )
     button.navbar-toggler(
@@ -165,7 +165,9 @@ block content
     //- ====================================================
     //- SKILLS
     //- ======================================================
-    section#skills.d-flex.flex-column
+    section#skills.d-flex.flex-column.lozad(
+      data-background-image="https://a.storyblok.com/f/47130/900x650/875cb5dfc3/macbook.jpg"
+    )
       .p-lg-5.p-3.skill-cover
         h3.mt-5.text-center.text-white Skills
         .row.text-center.my-auto
