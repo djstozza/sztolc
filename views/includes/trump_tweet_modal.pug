@@ -1,0 +1,95 @@
+-
+  const trumpTweetModalDetails = [
+      {
+        id: 'trumpTweet1',
+        src: 'https://a.storyblok.com/f/47130/1690x1228/50e1856479/trump-tweet-1.jpg',
+        alt: 'TrumpTweet Page',
+      },
+      {
+        id: 'trumpTweet2',
+        src: 'https://a.storyblok.com/f/47130/1690x1234/ba5ffd474f/trump-tweet-2.jpg',
+        alt: 'TumpTweet communicating with Twitter',  
+      },
+
+      {
+        id: 'trumpTweet3',
+        src: 'https://a.storyblok.com/f/47130/1690x1234/dbaee2081c/trump-tweet-3.jpg',
+        alt: 'TrumpTweet continuous deployment via CircleCi',
+      }
+    ]
+
+mixin trumpTweetModal(id, src, alt)
+  .portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true' id= id)
+    .modal-dialog(role='document')
+      .modal-content
+        .container.my-auto
+          .row
+            .modal-body
+              .title-bar
+                .col-md-12
+                  h2.text-center
+                    a.ml-md-5.pl-md-4(
+                      href='https://donald-trump-tweet.herokuapp.com/',
+                      target='_blank',
+                      rel='noopener noreferrer'
+                    )
+                      | TrumpTweet
+                    .float-right.d-none.d-md-block.close-modal(data-dismiss='modal')
+                      .lr
+                        .rl
+                  .heading-border
+              .row
+                .col-md-6
+                  img.img-fluid.img-centered.lozad(
+                    data-src= src,
+                    alt= alt
+                  )
+                .col-md-6
+                  p
+                    | Have you ever wondered what it'd be like to get insulted by the 45th President of the United
+                    | States of America?
+                  p
+                    | Well now's your chance!
+                  p
+                    | TrumpTweet is a Rails app with a React/Redux front end that scrapes tweets by the #{' '}
+                    a(href='https://twitter.com/realDonaldTrump') @realDonaldTrump
+                    |
+                    | and substitutes in the name or Twitter handle submitted by the user.
+                    | This is then posted as a tweet on #{' '}
+                    a(href='https://twitter.com/phnyDonaldTrump') @phnyDonaldTrump
+                    |
+                    | using the Twitter API.
+                  p
+                    | The app is connected to #{' '}
+                    a(href='https://circleci.com') CircleCi
+                    |
+                    | For continuous deployment.
+                  ul.list-inline.item-details
+                    li
+                      .row
+                        .col-1.col-md-2
+                          i.fab.fa-github
+                        .col-11.col-md-10
+                          a(
+                            href='https://github.com/djstozza/trump-tweet',
+                            target='_blank', rel='noopener noreferrer'
+                          )
+                            | TrumpTweet
+                    li
+                      .row
+                        .col-1.col-md-2
+                          i.fas.fa-cogs
+                        .col-11.col-md-10
+                          | Ruby on Rails, React, Redux, Webpack, Yarn, Twitter API, CircleCi
+                    li
+                      .row
+                        .col-1.col-md-2
+                          i.far.fa-file
+                        .col-11.col-md-10
+                          a(href='https://donald-trump-tweet.herokuapp.com/', target='_blank', rel='noopener noreferrer')
+                            | TrumpTweet
+                  button.btn.btn-general.btn-white.d-md-none(type='button' data-dismiss='modal')
+                    i.fa.fa-times
+                    |  Close
+each detail in trumpTweetModalDetails
+  +trumpTweetModal(detail.id, detail.src, detail.alt)

@@ -96,8 +96,8 @@ block content
                 h5.title Car Next Door - Full-Stack Web Developer
                 p.description
                   | A P2P car sharing platform that aims to improve community bonds and reduce carbon emissions. My
-                  | coding skills have increased dramatically as I've helped to release features, fix bugs, write tests
-                  | and help with deploys.
+                  | coding skills have increased dramatically as I've released features, fixed bugs, written tests,
+                  | reviewed PRs and helped with deploys.
     //- ====================================================
     //- PORTFOLIO
     //- ======================================================
@@ -161,6 +161,35 @@ block content
             img.img-fluid.lozad(
               data-src='https://a.storyblok.com/f/47130/313x232/114a3ed980/sudoku-3-small.jpg',
               alt='MEAN Sudoku Score Table'
+            )
+        
+      .row.my-auto
+        .col-sm-4.portfolio-item
+          a.portfolio-link(href='#trumpTweet1', data-toggle='modal')
+            .caption-port
+              .caption-port-content
+                i.fa.fa-search-plus.fa-3x
+            img.img-fluid.lozad(
+              data-src='https://a.storyblok.com/f/47130/1690x1228/50e1856479/trump-tweet-1.jpg',
+              alt='TrumpTweet Page'
+            )
+        .col-sm-4.portfolio-item
+          a.portfolio-link(href='#trumpTweet2', data-toggle='modal')
+            .caption-port
+              .caption-port-content
+                i.fa.fa-search-plus.fa-3x
+            img.img-fluid.lozad(
+              data-src='https://a.storyblok.com/f/47130/1690x1234/ba5ffd474f/trump-tweet-2.jpg',
+              alt='TumpTweet communicating with Twitter'
+            )
+        .col-sm-4.portfolio-item
+          a.portfolio-link(href='#trumpTweet3', data-toggle='modal')
+            .caption-port
+              .caption-port-content
+                i.fa.fa-search-plus.fa-3x
+            img.img-fluid.lozad(
+              data-src='https://a.storyblok.com/f/47130/1690x1234/dbaee2081c/trump-tweet-3.jpg',
+              alt='TrumpTweet continuous deployment via CircleCi'
             )
     //- ====================================================
     //- SKILLS
@@ -252,3 +281,4 @@ block content
 
   include includes/fpl_app_modal.pug
   include includes/sudoku_modal.pug
+  include includes/trump_tweet_modal.pug
