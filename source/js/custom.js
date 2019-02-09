@@ -33,11 +33,11 @@ const sendMail = () => {
     $submit.attr('disabled', true).text('Sending...');
     const $formInput = $('.form-input');
     const $invalid = $('.invalid-feedback');
-    const $success = $('.alert-success');
+    const $alert = $('.alert');
 
     $formInput.removeClass('is-invalid');
     $invalid.html('');
-    $success.addClass('d-none').html('');
+    $alert.addClass('d-none').html('');
 
     $.ajax({
       url: '/',
@@ -69,8 +69,12 @@ const sendMail = () => {
             $param.next('.invalid-feedback').html(error.msg);
           }
         });
+      } else if (data.error) {
+        $formInput.removeClass('is-invalid').val('');
+        $alert.html(data.error.message).addClass('alert-danger').removeClass('alert-success').removeClass('d-none');
+        $invalid.html('');
       } else {
-        $success.html(data.message).removeClass('d-none');
+        $alert.html(data.message).addClass('alert-success').removeClass('alert-danger').removeClass('d-none');
         $formInput.removeClass('is-invalid').val('');
         $invalid.html('');
       }
