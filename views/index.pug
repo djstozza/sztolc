@@ -254,6 +254,8 @@ block content
               .col-md-12
                 textarea#message.form-control.my-2.form-input(type='text' name='message' placeholder='Message' required)
                 div.invalid-feedback
+              .col-md-12
+                p !{captcha}
               .col-md-12.sub-but.mt-1
                 button.btn.btn-general.btn-white(role='button' type='submit' id='submit') Send
                 .alert.d-none(role='alert')
