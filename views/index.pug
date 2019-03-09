@@ -254,9 +254,8 @@ block content
               .col-md-12
                 textarea#message.form-control.my-2.form-input(type='text' name='message' placeholder='Message' required)
                 div.invalid-feedback
-              .col-md-12
-                p !{captcha}
               .col-md-12.sub-but.mt-1
+                input#recaptchaResponse(type='hidden' name='recaptcha_response')
                 button.btn.btn-general.btn-white(role='button' type='submit' id='submit') Send
                 .alert.d-none(role='alert')
           
@@ -280,7 +279,18 @@ block content
             li
               a(href='https://twitter.com/DSztolcman', target='_blank', rel='noopener noreferrer')
                 i.fab.fa-twitter.top-social(style='color: #4AB3F4; border-color:#4AB3F4;')
-
+  
+  #reCAPTCHA_site_key.d-none
+    =reCAPTCHA_site_key
+  script(src=`https://www.google.com/recaptcha/api.js?render=${reCAPTCHA_site_key}`)
+  script.
+    grecaptcha.ready(function () {
+      grecaptcha.execute(document.getElementById("reCAPTCHA_site_key").innerHTML, { action: 'index' })
+        .then(function (token) {
+          const recaptchaResponse = document.getElementById('recaptchaResponse');
+          recaptchaResponse.value = token;
+        });
+      });
   include includes/fpl_app_modal.pug
   include includes/sudoku_modal.pug
   include includes/trump_tweet_modal.pug

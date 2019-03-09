@@ -1,8 +1,7 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator/check');
 const nodemailer = require('nodemailer');
-var Recaptcha = require('express-recaptcha').Recaptcha;
-let recaptcha = new Recaptcha(process.env.RECAPTCHA_SITE_KEY, process.env.RECAPTCHA_SECRET_KEY);
+let request = require('request-promise');
 
 
 let router = express.Router();
@@ -46,28 +45,36 @@ var submitMessage = function (req, res) {
 
 
 /* GET home page. */
-router.get('/', recaptcha.middleware.render, function(req, res, next) {
-  res.render('index', { captcha: res.recaptcha });
+router.get('/', function(req, res, next) {
+  res.render('index', { reCAPTCHA_site_key: process.env.RECAPTCHA_SITE_KEY });
 });
 
 router.post(
   '/',
   [
-    recaptcha.middleware.verify,
     check('name', 'is required').isLength({ min: 1 }),
     check('email', 'is invalid').isEmail(),
     check('subject', 'is required').isLength({ min: 1 }),
     check('message', 'is required').isLength({ min: 1 }),
   ],
   function (req, res) {
-    recaptcha.verify(req, function(error, data) {
-      if (!req.recaptcha.error) {
+    const options = {
+      method: 'POST',
+      uri: 'https://www.google.com/recaptcha/api/siteverify',
+      body: {
+        secret: process.env.RECAPTCHA_SECRET_KEY,
+        response: req.body.recaptcha_response,
+      },
+      json: true
+    };
+
+    request(options)
+      .then(function (response) {
         submitMessage(req, res);
-      } else {
-        console.log(req.recaptcha.error)
-        res.json({ error: req.recaptcha.error })
-      }
-    });
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 );
 

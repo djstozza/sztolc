@@ -47,6 +47,7 @@ const sendMail = () => {
         email: $('#email').val(),
         subject: $('#subject').val(),
         message: $('#message').val(),
+        recaptcha_response: $('#recaptchaResponse').val()
       }
     }).done((data) => {
       $submit.attr('disabled', false).text('Send');
