@@ -70,8 +70,11 @@ router.post(
 
     request(options)
       .then(function (response) {
-        console.log(response)
-        submitMessage(req, res);
+        if (response.success && response.score > 0.5) {
+          submitMessage(req, res);
+        } else {
+          console.log("Unable to submit");
+        }
       })
       .catch(function (error) {
         console.log(error)
