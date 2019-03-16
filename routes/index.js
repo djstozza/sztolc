@@ -61,7 +61,7 @@ router.post(
     const options = {
       method: 'POST',
       uri: 'https://www.google.com/recaptcha/api/siteverify',
-      body: {
+      form: {
         secret: process.env.RECAPTCHA_SECRET_KEY,
         response: req.body.recaptcha_response,
       },
@@ -70,6 +70,7 @@ router.post(
 
     request(options)
       .then(function (response) {
+        console.log(response)
         submitMessage(req, res);
       })
       .catch(function (error) {
