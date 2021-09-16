@@ -1,0 +1,226 @@
+{
+  "basic_info": {
+    "id": "home",
+    "title": "Home",
+    "icon": "HomeOutlinedIcon",
+    "name": "Daniel Sztolcman",
+    "titles": [ "Full-stack web developer", "Pharmacist", "Trivia buff", "Chess enthusiast", "Karaoke tragic" ],
+    "social": [
+      {
+        "name": "email",
+        "url": "mailto:daniel.sztolcman@gmail.com",
+        "class": "fas fa-envelope",
+        "icon": "EmailIcon"
+      },
+      {
+        "name": "phone",
+        "url": "tel:+61438181188",
+        "class": "fas fa-phone",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/djstozza",
+        "class": "fab fa-github",
+        "icon": "GitHubIcon"
+      },
+      {
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/in/danielsztolcman/",
+        "class": "fab fa-linkedin",
+        "icon": "LinkedInIcon"
+      },
+      {
+        "name": "twitter",
+        "url": "https://twitter.com/DSztolcman",
+        "class": "fab fa-twitter",
+        "icon": "TwitterIcon"
+      }
+    ],
+    "image": "/images/profile-picture.jpeg"
+  },
+  "about": {
+    "id": "about",
+    "title": "About Me",
+    "icon": "PersonOutlineOutlinedIcon",
+    "description": "After working as a pharmacist in a full-time capacity for a number of years, I decided to pursue a career in coding. I am a dedicated and versatile full-stack web developer who specialises in Ruby on Rails and JavaScript. When I'm not staring at my computer screen, I spend my time playing the piano, listening to music, singing, going to pub trivia and making terrible puns."
+  },
+  "skills": {
+    "id": "skills",
+    "title": "Skills",
+    "icon": "FormatListBulletedIcon",
+    "icons": [
+      {
+        "name": "HTML 5",
+        "className": "devicon-html5-plain"
+      },
+      {
+        "name": "CSS 3",
+        "className": "devicon-css3-plain"
+      },
+      {
+        "name": "Ruby",
+        "className": "devicon-ruby-plain"
+      },
+      {
+        "name": "Rails",
+        "className": "devicon-rails-plain"
+      },
+      {
+        "name": "React",
+        "className": "devicon-react-plain"
+      },
+      {
+        "name": "Vue",
+        "className": "devicon-vuejs-plain"
+      },
+      {
+        "name": "Angular",
+        "className": "devicon-angularjs-plain"
+      },
+      {
+        "name": "TypeScript",
+        "className": "devicon-typescript-plain"
+      },
+      {
+        "name": "JavaScript",
+        "className": "devicon-javascript-plain"
+      },
+      {
+        "name": "PostgreSQL",
+        "className": "devicon-postgresql-plain"
+      }
+    ]
+  },
+  "experience": {
+    "id": "experience",
+    "title": "Experience",
+    "icon": "TimelineOutlinedIcon",
+    "jobs": [
+      {
+        "company": "General Assembly",
+        "title": "Web Development Immersive",
+        "years": "Aug 2015 - Nov 2015",
+        "img": "/images/general-assembly.png",
+        "description": [
+          "A rigorous three month course with a well rounded curriculum that teaches students how to build well-tested web applications"
+        ],
+        "technologies": [
+          "HTML",
+          "CSS",
+          "Ruby on Rails",
+          "PostgreSQL",
+          "JavaScript"
+        ]
+      },
+      {
+        "company": "Car Next Door",
+        "title": "Full-stack Web Developer",
+        "years": "Dec 2015 - Mar 2019",
+        "img": "/images/car-next-door.png",
+        "description": [
+          "A P2P car sharing platform that aims to improve community bonds and reduce carbon emissions. My coding skills dramatically improved while working there as I released features, fixed bugs, wrote tests, reviewed PRs and helped with deploys."
+        ],
+        "technologies": [
+          "Ruby on Rails",
+          "PostgreSQL",
+          "JavaScript",
+          "Ionic"
+        ]
+      },
+      {
+        "company": "RCPA Quality Assurance Programs",
+        "title": "Senior Software Engineer",
+        "years": "Mar 2019 - Present",
+        "img": "/images/rcpaqap.png",
+        "description": [
+          "The quality assurance arm of the Royal College of Pathologists of Australasia, which offers accreditation to pathology labs in over 80 countries.",
+          "My responsibilities involve maintaining and expanding the features of the user interface. The interface consists of a Rails API and React app, which allows users to input data, view reports, as well as analyse results."
+        ],
+        "technologies": [
+          "Ruby on Rails",
+          "React",
+          "Redux-Saga",
+          "D3",
+          "PostgreSQL"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "id": "projects",
+    "title": "Projects",
+    "icon": "AppsIcon",
+    "projects": [
+      {
+        "id": "fpl-app",
+        "title": "Fpl App",
+        "description": [
+          "A game based on the [Fantasy Premier League](https://fantasy.premierleague.com/). It allows users assemble a team of players from the English Premier League as they compete with other users in their league to score the most points based on their players' statistical performance.",
+          "Fpl App consists of a [Rails API backend](https://github.com/djstozza/fpl-app-api) and a [React frontend](https://github.com/djstozza/fpl-app-fe). The backend fetches data from the FPL API on a regular basis using workers powered by Redis and Sidekiq to update scores before notifying the frontend of the changes via Action Cable."
+        ],
+        "images": [
+          "/images/portfolio/fpl-app/fpl-app-1.png",
+          "/images/portfolio/fpl-app/fpl-app-2.png",
+          "/images/portfolio/fpl-app/fpl-app-3.png",
+          "/images/portfolio/fpl-app/fpl-app-4.png"
+        ],
+        "project_link": { "name": "Fpl App", "url": "https://fpl-app-fe.herokuapp.com" },
+        "github_links": [
+          { "name": "Fpl App Api", "url": "https://github.com/djstozza/fpl-app-api" },
+          { "name": "Fpl App Fe", "url": "https://github.com/djstozza/fpl-app-fe" }
+        ],
+        "reference_links": [
+          { "name": "Fantasy Premier League", "url": "https://fantasy.premierleague.com/" },
+          {
+            "name": "Fantasy Premier League API Endpoints Guide",
+            "url": "https://medium.com/@frenzelts/fantasy-premier-league-api-endpoints-a-detailed-guide-acbd5598eb19"
+          }
+        ],
+        "technologies": [
+          "Ruby on Rails",
+          "React",
+          "Redux Saga",
+          "Redis",
+          "Sidekiq",
+          "Action Cable",
+          "Typescript",
+          "Material UI",
+          "Devise",
+          "JWT",
+          "Lodash"
+        ]
+      },
+      {
+        "id": "trump-tweet",
+        "title": "Trump Tweet",
+        "description": [
+          "Ever wondered what it would be like to be insulted on Twitter by the 45th President of the United States?",
+          "Trump Tweet is a Vue app with an Express server. It allows users to fill in a form by entering a name or Twitter handle into a text field and selecting a phrase i.e. Lyin' Ted or Crooked Hillary. Once the form is submitted, a call is made to a SearchBox ElasticSearch instance to obtain tweets that match the phrase. A random tweet is then selected and posted as a status update to [@hoaxDonalTrump](https://twitter.com/hoaxDonalTrump) with the name substitution.",
+          "#MGTA (Make Twitter Great Again)!"
+        ],
+        "images": [
+          "/images/portfolio/trump-tweet/trump-tweet-1.png",
+          "/images/portfolio/trump-tweet/trump-tweet-2.png",
+          "/images/portfolio/trump-tweet/trump-tweet-3.png"
+        ],
+        "project_link": { "name": "Trump Tweet", "url": "https://donald-trump-tweet.herokuapp.com/#/" },
+        "github_links": [
+          { "name": "Trump Tweet", "url": "https://github.com/djstozza/trump-tweet" }
+        ],
+        "reference_links": [
+          { "name": "Trump Twitter Archive", "url": "https://www.thetrumparchive.com/" }
+        ],
+        "technologies": [
+          "Vue",
+          "Vuex",
+          "Vuetify",
+          "Express",
+          "TypeScript",
+          "Socket.IO",
+          "Twitter"
+        ]
+      }
+    ]
+  }
+}
