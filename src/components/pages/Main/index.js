@@ -4,14 +4,14 @@ import React, { useRef } from 'react'
 import { Box } from '@material-ui/core'
 import { Scrollspy } from '@makotot/ghostui'
 
-import Header from '../../common/Header'
+import Header from 'src/components/common/Header'
 import Home from './home'
 import About from './about'
 import Experience from './experience'
 import Projects from './projects'
 import Skills from './skills'
 
-import type { Data, SectionBase } from '../../../types'
+import type { Data, SectionBase } from 'types'
 import type { Node } from 'react'
 
 const Main = ({ data, menuOpen }:{ data: Data, menuOpen: boolean }): Node => {

@@ -7,9 +7,9 @@ import {
 } from '@material-ui/core'
 import classnames from 'classnames'
 
-import Section from '../../common/Section'
+import Section from 'src/components/common/Section'
 
-import type { Skills as SkillsType, RefObject } from '../../../types'
+import type { Skills as SkillsType, RefObject } from 'types'
 import type { Node } from 'react'
 
 type Props = { scrollRef: RefObject } & SkillsType

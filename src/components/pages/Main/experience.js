@@ -13,9 +13,9 @@ import {
   makeStyles
 } from '@material-ui/core'
 
-import Section from '../../common/Section'
+import Section from 'src/components/common/Section'
 
-import type { Experience as ExperienceType, RefObject } from '../../../types'
+import type { Experience as ExperienceType, RefObject } from 'types'
 import type { Node } from 'react'
 
 type Props = { scrollRef: RefObject } & ExperienceType

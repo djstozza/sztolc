@@ -3,9 +3,9 @@
 import React from 'react'
 import { Typography } from '@material-ui/core'
 
-import Section from '../../common/Section'
+import Section from 'src/components/common/Section'
 
-import type { About as AboutType, RefObject } from '../../../types'
+import type { About as AboutType, RefObject } from 'types'
 import type { Node } from 'react'
 
 type Props = { scrollRef: RefObject } & AboutType

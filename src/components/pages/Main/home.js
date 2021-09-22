@@ -7,9 +7,9 @@ import {
 } from '@material-ui/core'
 
 import Titles from './titles'
-import Icon from '../../common/Icon'
+import Icon from 'src/components/common/Icon'
 
-import type { BasicInfo } from '../../../types'
+import type { BasicInfo } from 'types'
 import type { Node, Ref } from 'react'
 
 type Props = { scrollRef: Ref<'div'> } & BasicInfo

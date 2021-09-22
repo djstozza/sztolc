@@ -10,9 +10,9 @@ import {
 import classnames from 'classnames'
 
 import Icon from '../Icon'
-import { ContentsItem } from '../../helpers'
+import { ContentsItem } from 'src/components/helpers'
 
-import type { SectionBase, BasicInfo, RefObject } from '../../../types'
+import type { SectionBase, BasicInfo, RefObject } from 'types'
 import type { Node } from 'react'
 
 type Props = {

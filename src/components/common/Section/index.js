@@ -9,7 +9,7 @@ import {
 
 import Title from './title'
 
-import type { RefObject } from '../../../types'
+import type { RefObject } from 'types'
 import type { Node } from 'react'
 
 const useStyles = makeStyles(theme => ({

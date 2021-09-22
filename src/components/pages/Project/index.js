@@ -14,11 +14,11 @@ import BuildIcon from '@material-ui/icons/Build'
 import FindInPageIcon from '@material-ui/icons/FindInPage'
 import WebIcon from '@material-ui/icons/Web'
 
-import Header from '../../common/Header'
-import Section from '../../common/Section'
-import { LinkRenderer, LinkList, Description } from '../../helpers'
+import Header from 'src/components/common/Header'
+import Section from 'src/components/common/Section'
+import { LinkRenderer, LinkList, Description } from 'src/components/helpers'
 
-import type { Data, SectionBase } from '../../../types'
+import type { Data, SectionBase } from 'types'
 import type { Node } from 'react'
 
 type Props = {
