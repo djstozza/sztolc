@@ -1,9 +1,10 @@
+// @flow
+
 import React, { useEffect } from 'react'
 import {
   Box,
   Grid,
   Chip,
-  Theme,
   makeStyles
 } from '@material-ui/core'
 import Carousel from 'react-material-ui-carousel'
@@ -17,7 +18,16 @@ import Header from '../../common/Header'
 import Section from '../../common/Section'
 import { LinkRenderer, LinkList, Description } from '../../helpers'
 
-const useStyles = makeStyles((theme: Theme) => ({
+import type { Data, SectionBase } from '../../../types'
+import type { Node } from 'react'
+
+type Props = {
+  data: Data,
+  match: { params: { id: string } },
+  menuOpen: boolean
+}
+
+const useStyles = makeStyles((theme) => ({
   image: {
     width: '100%'
   },
@@ -30,11 +40,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const Project = ({ data, match: { params: { id } }, menuOpen }) => {
-  const { basic_info, projects: { projects } } = data
+const Project = ({ data, match: { params: { id } }, menuOpen }: Props): Node => {
+  const { basicInfo, projects: { projects } } = data
   const classes = useStyles()
-  const contents = Object.values(data).map(({ id, title, icon }) => ({ id, title, icon }))
+
+  const dataValues: any = Object.values(data)
+  const contents: SectionBase[] = dataValues.map(({ id, title, icon }) => ({ id, title, icon }))
+
   const project = projects.find(({ id: projectId }) => projectId === id)
+
   useEffect(
     () => {
       window.scrollTo(0, 0)
@@ -43,12 +57,12 @@ const Project = ({ data, match: { params: { id } }, menuOpen }) => {
 
   if (!project) return null
 
-  const { title, description, images, github_links, technologies, project_link, reference_links } = project
+  const { title, description, images, githubLinks, technologies, projectLink, referenceLinks } = project
 
   return (
     <Box overflow='hidden'>
       <Header
-        {...basic_info}
+        {...basicInfo}
         contents={contents}
         menuOpen={menuOpen}
       />
@@ -79,7 +93,7 @@ const Project = ({ data, match: { params: { id } }, menuOpen }) => {
                 <Description icon={<GitHubIcon />} descriptionText='GitHub' />
               </Grid>
               <Grid item xs={8} sm={9} md={10}>
-                <LinkList list={github_links} />
+                <LinkList list={githubLinks} />
               </Grid>
               <Grid item xs={4} sm={3} md={2}>
                 <Description icon={<BuildIcon />} descriptionText='Tech' />
@@ -91,14 +105,14 @@ const Project = ({ data, match: { params: { id } }, menuOpen }) => {
                 <Description icon={<FindInPageIcon />} descriptionText='Sources' />
               </Grid>
               <Grid item xs={8} sm={9} md={10}>
-                <LinkList list={reference_links} />
+                <LinkList list={referenceLinks} />
               </Grid>
               <Grid item xs={4} sm={3} md={2}>
                 <Description icon={<WebIcon />} descriptionText='Website' />
               </Grid>
               <Grid item xs={8} sm={9} md={10}>
-                <LinkRenderer href={project_link.url}>
-                  {project_link.name}
+                <LinkRenderer href={projectLink.url}>
+                  {projectLink.name}
                 </LinkRenderer>
               </Grid>
             </Grid>

@@ -1,3 +1,5 @@
+// @flow
+
 import React, { useRef } from 'react'
 import { Box } from '@material-ui/core'
 import { Scrollspy } from '@makotot/ghostui'
@@ -9,7 +11,10 @@ import Experience from './experience'
 import Projects from './projects'
 import Skills from './skills'
 
-const Main = ({ data, menuOpen }) => {
+import type { Data, SectionBase } from '../../../types'
+import type { Node } from 'react'
+
+const Main = ({ data, menuOpen }:{ data: Data, menuOpen: boolean }): Node => {
   const homeRef = useRef()
   const aboutRef = useRef()
   const skillsRef = useRef()
@@ -24,9 +29,10 @@ const Main = ({ data, menuOpen }) => {
     projectsRef
   ]
 
-  const contents = Object.values(data).map(({ id, title, icon }) => ({ id, title, icon }))
+  const dataValues: any = Object.values(data)
+  const contents: SectionBase[] = dataValues.map(({ id, title, icon }) => ({ id, title, icon }))
 
-  const { basic_info, about, experience, projects, skills } = data
+  const { basicInfo, about, experience, projects, skills } = data
 
   return (
     <Scrollspy sectionRefs={refs}>
@@ -34,14 +40,14 @@ const Main = ({ data, menuOpen }) => {
         ({ currentElementIndexInViewport }) => (
           <Box overflow='hidden'>
             <Header
-              {...basic_info}
+              {...basicInfo}
               refs={refs}
               contents={contents}
               currentElementIndexInViewport={currentElementIndexInViewport}
               menuOpen={menuOpen}
             />
             <div id='main'>
-              <Home {...basic_info} scrollRef={homeRef} />
+              <Home {...basicInfo} scrollRef={homeRef} />
               <About {...about} scrollRef={aboutRef} />
               <Skills {...skills} scrollRef={skillsRef} />
               <Experience {...experience} scrollRef={experienceRef} />

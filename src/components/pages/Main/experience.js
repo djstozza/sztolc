@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 import {
   VerticalTimeline,
@@ -8,13 +10,17 @@ import {
   Box,
   Chip,
   Typography,
-  Theme,
   makeStyles
 } from '@material-ui/core'
 
 import Section from '../../common/Section'
 
-const useStyles = makeStyles((theme: Theme) => ({
+import type { Experience as ExperienceType, RefObject } from '../../../types'
+import type { Node } from 'react'
+
+type Props = { scrollRef: RefObject } & ExperienceType
+
+const useStyles = makeStyles(theme => ({
   dateTitle: {
     [theme.breakpoints.up(1170)]: {
       margin: `0px ${theme.spacing(1)}px`,
@@ -29,20 +35,20 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const Experience = ({ id, title, jobs = [], scrollRef }) => {
+const Experience = ({ id, title, jobs = [], scrollRef }: Props): Node => {
   const classes = useStyles()
 
   return (
     <Section id={id} title={title} scrollRef={scrollRef} backgroundColor='#191970'>
       <VerticalTimeline>
         {
-          jobs.map(({ technologies, years, title, company, description, img }, i) => (
+          jobs.map(({ technologies, years, title, company, description, image }, i) => (
             <VerticalTimelineElement
               className='vertical-timeline-element--work'
               date={years}
               dateClassName={classes.dateTitle}
               iconStyle={{ background: '#ffffff' }}
-              icon={<img src={img} alt={title} className={classes.icon} />}
+              icon={<img src={image} alt={title} className={classes.icon} />}
               key={i}
             >
               <Typography variant='h6'>

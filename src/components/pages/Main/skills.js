@@ -1,14 +1,20 @@
+// @flow
+
 import React from 'react'
 import {
   Typography,
-  Theme,
   makeStyles
 } from '@material-ui/core'
 import classnames from 'classnames'
 
 import Section from '../../common/Section'
 
-const useStyles = makeStyles((theme: Theme) => ({
+import type { Skills as SkillsType, RefObject } from '../../../types'
+import type { Node } from 'react'
+
+type Props = { scrollRef: RefObject } & SkillsType
+
+const useStyles = makeStyles(theme => ({
   inlineIconList: {
     textAlign: 'center'
   },
@@ -39,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const Skills = ({ id, title, icons = [], scrollRef }) => {
+const Skills = ({ id, title, icons = [], scrollRef }: Props): Node => {
   const classes = useStyles()
 
   return (

@@ -1,9 +1,8 @@
+// @flow
+
 import React from 'react'
 import classnames from 'classnames'
-import {
-  Theme,
-  makeStyles
-} from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 
 import TimelineOutlinedIcon from '@material-ui/icons/TimelineOutlined'
 import AppsIcon from '@material-ui/icons/Apps'
@@ -17,12 +16,15 @@ import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import PhoneIcon from '@material-ui/icons/Phone'
 import TwitterIcon from '@material-ui/icons/Twitter'
 
+import type { Node } from 'react'
+
 type Props = {
   icon: string,
-  small?: boolean
+  large?: boolean,
+  noMargin?: boolean
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(theme => ({
   icon: {
     height: theme.spacing(3)
   },
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const Icon = ({ icon, large, noMargin }: Props) => {
+const Icon = ({ icon, large, noMargin }: Props): Node => {
   const classes = useStyles()
 
   const icons = {

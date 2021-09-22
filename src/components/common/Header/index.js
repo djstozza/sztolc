@@ -1,9 +1,10 @@
+// @flow
+
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import {
   Box,
   Typography,
-  Theme,
   makeStyles
 } from '@material-ui/core'
 import classnames from 'classnames'
@@ -11,7 +12,17 @@ import classnames from 'classnames'
 import Icon from '../Icon'
 import { ContentsItem } from '../../helpers'
 
-const useStyles = makeStyles((theme: Theme) => ({
+import type { SectionBase, BasicInfo, RefObject } from '../../../types'
+import type { Node } from 'react'
+
+type Props = {
+  currentElementIndexInViewport?: number,
+  contents: SectionBase[],
+  refs?: RefObject[],
+  menuOpen: boolean
+} & BasicInfo
+
+const useStyles = makeStyles(theme => ({
   header: {
     position: 'fixed',
     top: 0,
@@ -85,12 +96,20 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const Header = ({ name, image, social = [], currentElementIndexInViewport, contents=[], refs = [], menuOpen }) => {
+const Header = ({
+  name,
+  image,
+  social = [],
+  currentElementIndexInViewport,
+  contents=[],
+  refs = [],
+  menuOpen
+}: Props): Node => {
   const classes = useStyles()
   const history = useHistory()
 
-  const executeScroll = (ref, id) => {
-    if (ref) ref.current.scrollIntoView({ behavior: 'smooth' })
+  const executeScroll = ({ current }, id) => {
+    if (current) current.scrollIntoView({ behavior: 'smooth' })
     history.push(`/#${id}`)
   }
 

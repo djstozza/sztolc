@@ -1,18 +1,19 @@
+// @flow
+
 import React, { useEffect, useState } from 'react'
 import Typical from 'react-typical'
-import {
-  Theme,
-  makeStyles
-} from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 
-const useStyles = makeStyles((theme: Theme) => ({
+import type { Node } from 'react'
+
+const useStyles = makeStyles(theme => ({
   subtitleContainer: {
     height: theme.spacing(8),
     fontWeight: 'normal'
   }
 }))
 
-const Titles = ({ titles = [] }) => {
+const Titles = ({ titles = [] }:{ titles: string[] }): Node => {
   const [titlesRenderer, setTitlesRenderer] = useState([])
   const classes = useStyles()
 

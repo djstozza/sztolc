@@ -1,21 +1,32 @@
+// @flow
+
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import {
   Box,
-  Theme,
   makeStyles
 } from '@material-ui/core'
 
 import Title from './title'
 
+import type { RefObject } from '../../../types'
+import type { Node } from 'react'
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: ({ backgroundColor = '#ffffff' }:{ backgroundColor?: string }) => backgroundColor
   }
 }))
 
-const Section = ({ id, title, backgroundColor, scrollRef, children }) => {
+type Props = {
+  id?: string,
+  title: string,
+  backgroundColor?: string,
+  scrollRef?: RefObject,
+  children: any
+}
+
+const Section = ({ id, title, backgroundColor, scrollRef, children }: Props): Node => {
   const classes = useStyles({ backgroundColor })
   const { current } = scrollRef || {}
   const { hash } = useLocation()

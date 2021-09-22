@@ -1,14 +1,20 @@
+// @flow
+
 import React from 'react'
 import {
   Typography,
-  Theme,
   makeStyles
 } from '@material-ui/core'
 
 import Titles from './titles'
 import Icon from '../../common/Icon'
 
-const useStyles = makeStyles((theme: Theme) => ({
+import type { BasicInfo } from '../../../types'
+import type { Node, Ref } from 'react'
+
+type Props = { scrollRef: Ref<'div'> } & BasicInfo
+
+const useStyles = makeStyles(theme => ({
   root: {
     position: 'relative',
     height: '100vh',
@@ -80,7 +86,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const Home = ({ id, name, social = [], titles = [], scrollRef }) => {
+const Home = ({ id, name, social = [], titles = [], scrollRef }: Props): Node => {
   const classes = useStyles()
 
   return (

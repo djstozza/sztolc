@@ -1,13 +1,16 @@
+// @flow
+
 import React from 'react'
 import {
   Box,
   Typography,
-  Theme,
   makeStyles
 } from '@material-ui/core'
 import classnames from 'classnames'
 
-const useStyles = makeStyles((theme: Theme) => ({
+import type { Node } from 'react'
+
+const useStyles = makeStyles(theme => ({
   whiteTitle: {
     color: '#ffffff'
   }
@@ -15,11 +18,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 type Props = {
   title: string,
-  whiteTitle?: boolean,
-  scrollRef: HTMLInputElement
+  whiteTitle?: boolean
 }
 
-const Title = ({ title, whiteTitle }: Props) => {
+const Title = ({ title, whiteTitle }: Props): Node => {
   const classes = useStyles()
 
   return (

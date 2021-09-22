@@ -1,8 +1,8 @@
+// @flow
 import React, { lazy, useState, Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import {
   IconButton,
-  Theme,
   useTheme,
   useMediaQuery,
   makeStyles
@@ -13,12 +13,14 @@ import CloseIcon from '@material-ui/icons/Close'
 import './App.scss'
 import data from './data/data.json'
 
+import type { Node } from 'react'
+
 const Main = lazy(() => import('./components/pages/Main'))
 const Project = lazy(() => import('./components/pages/Project'))
 
 const renderLoader = () => <div id='load-screen'><div className='spinner' /></div>
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(theme => ({
   openMenuButton: {
     position: 'fixed',
     top: theme.spacing(1),
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const App = () => {
+const App = (): Node => {
   const classes = useStyles()
   const theme = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)

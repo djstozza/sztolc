@@ -1,22 +1,28 @@
+// @flow
+
 import React from 'react'
 import {
   Typography,
   Grid,
-  Theme,
   makeStyles
 } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
 import Section from '../../common/Section'
 
-const useStyles = makeStyles((theme: Theme) => ({
+import type { Projects as ProjectsType, RefObject } from '../../../types'
+import type { Node } from 'react'
+
+type Props = { scrollRef: RefObject } & ProjectsType
+
+const useStyles = makeStyles(theme => ({
   image: {
     width: '100%',
     cursor: 'pointer'
   }
 }))
 
-const Projects = ({ id, title, projects, scrollRef }) => {
+const Projects = ({ id, title, projects, scrollRef }: Props): Node => {
   const classes = useStyles()
   return (
     <Section id={id} title={title} scrollRef={scrollRef}>
