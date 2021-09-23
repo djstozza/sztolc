@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
       width: '100%',
       height: '100%',
       opacity: '0.6',
-      backgroundImage: 'url("/images/header.jpeg")',
+      backgroundImage: 'url("/images/header.webp")',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: '50% 50%',
       [theme.breakpoints.up('sm')]: {

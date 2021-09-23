@@ -32,7 +32,7 @@
         "icon": "TwitterIcon"
       }
     ],
-    "image": "/images/profile-picture.jpeg"
+    "image": "/images/profile-picture.webp"
   },
   "about": {
     "id": "about",
@@ -96,7 +96,7 @@
         "company": "General Assembly",
         "title": "Web Development Immersive",
         "years": "Aug 2015 - Nov 2015",
-        "image": "/images/general-assembly.png",
+        "image": "/images/general-assembly.webp",
         "description": [
           "A rigorous three month course with a well rounded curriculum that teaches students how to build well-tested web applications"
         ],
@@ -112,7 +112,7 @@
         "company": "Car Next Door",
         "title": "Full-stack Web Developer",
         "years": "Dec 2015 - Mar 2019",
-        "image": "/images/car-next-door.png",
+        "image": "/images/car-next-door.webp",
         "description": [
           "A P2P car sharing platform that aims to improve community bonds and reduce carbon emissions. My coding skills dramatically improved while working there as I released features, fixed bugs, wrote tests, reviewed PRs and helped with deploys."
         ],
@@ -127,7 +127,7 @@
         "company": "RCPA Quality Assurance Programs",
         "title": "Senior Software Engineer",
         "years": "Mar 2019 - Present",
-        "image": "/images/rcpaqap.png",
+        "image": "/images/rcpaqap.webp",
         "description": [
           "The quality assurance arm of the Royal College of Pathologists of Australasia, which offers accreditation to pathology labs in over 80 countries.",
           "My responsibilities involve maintaining and expanding the features of the user interface. The interface consists of a Rails API and React app, which allows users to input data, view reports, as well as analyse results."
@@ -155,10 +155,10 @@
           "Fpl App consists of a [Rails API backend](https://github.com/djstozza/fpl-app-api) and a [React frontend](https://github.com/djstozza/fpl-app-fe). The backend fetches data from the FPL API on a regular basis using workers powered by Redis and Sidekiq to update scores before notifying the frontend of the changes via Action Cable."
         ],
         "images": [
-          "/images/portfolio/fpl-app/fpl-app-1.png",
-          "/images/portfolio/fpl-app/fpl-app-2.png",
-          "/images/portfolio/fpl-app/fpl-app-3.png",
-          "/images/portfolio/fpl-app/fpl-app-4.png"
+          "/images/portfolio/fpl-app/fpl-app-1.webp",
+          "/images/portfolio/fpl-app/fpl-app-2.webp",
+          "/images/portfolio/fpl-app/fpl-app-3.webp",
+          "/images/portfolio/fpl-app/fpl-app-4.webp"
         ],
         "projectLink": { "name": "Fpl App", "url": "https://fpl-app-fe.herokuapp.com" },
         "githubLinks": [
@@ -195,9 +195,9 @@
           "#MGTA (Make Twitter Great Again)!"
         ],
         "images": [
-          "/images/portfolio/trump-tweet/trump-tweet-1.png",
-          "/images/portfolio/trump-tweet/trump-tweet-2.png",
-          "/images/portfolio/trump-tweet/trump-tweet-3.png"
+          "/images/portfolio/trump-tweet/trump-tweet-1.webp",
+          "/images/portfolio/trump-tweet/trump-tweet-2.webp",
+          "/images/portfolio/trump-tweet/trump-tweet-3.webp"
         ],
         "projectLink": { "name": "Trump Tweet", "url": "https://donald-trump-tweet.herokuapp.com/#/" },
         "githubLinks": [
