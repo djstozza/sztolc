@@ -2,17 +2,19 @@
 
 import React, { useEffect } from 'react'
 import {
+  Typography,
   Box,
   Grid,
   Chip,
   makeStyles
 } from '@material-ui/core'
-import Carousel from 'react-material-ui-carousel'
 import ReactMarkdown from 'react-markdown'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import BuildIcon from '@material-ui/icons/Build'
 import FindInPageIcon from '@material-ui/icons/FindInPage'
 import WebIcon from '@material-ui/icons/Web'
+import AliceCarousel from 'react-alice-carousel'
+import 'react-alice-carousel/lib/alice-carousel.css'
 
 import Header from 'src/components/common/Header'
 import Section from 'src/components/common/Section'
@@ -37,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
   },
   descriptionText: {
     marginLeft: theme.spacing(1)
+  },
+  paragraph: {
+    marginBottom: theme.spacing(1.5)
   }
 }))
 
@@ -68,21 +73,27 @@ const Project = ({ data, match: { params: { id } }, menuOpen }: Props): Node => 
       />
       <div id='main'>
         <Section title={title}>
-          <Carousel
-            animation='slide'
-            autoplay
-            cycleNavigation
-            stopAutoPlayOnHover
-            interval={5000}
-          >
-            {images.map((image, i) => <img className={classes.image} key={i} src={image} alt={`${title} ${i}`} />)}
-          </Carousel>
+          <AliceCarousel
+            mouseTracking
+            items={images.map((image, i) => <img className={classes.image} key={i} src={image} alt={`${title} ${i}`} />)}
+            autoPlay
+            autoPlayInterval={4000}
+            animationDuration={800}
+            infinite
+            disableButtonsControls
+          />
+
           <div style={{ display: 'block' }}>
             {
               description.map((paragraph, i) => (
                 <ReactMarkdown
                   key={i}
-                  components={{ a: ({ href, children }) => <LinkRenderer href={href}>{children}</LinkRenderer> }}
+                  components={{
+                    a: ({ href, children }) => <LinkRenderer href={href}>{children}</LinkRenderer>,
+                    p: ({ children }) => (
+                      <Typography align='justify' className={classes.paragraph}>{children}</Typography>
+                    )
+                  }}
                 >
                   {paragraph}
                 </ReactMarkdown>
