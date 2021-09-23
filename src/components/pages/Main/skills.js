@@ -6,6 +6,7 @@ import {
   makeStyles
 } from '@material-ui/core'
 import classnames from 'classnames'
+import 'devicon'
 
 import Section from 'src/components/common/Section'
 
@@ -47,6 +48,7 @@ const useStyles = makeStyles(theme => ({
 
 const Skills = ({ id, title, icons = [], scrollRef }: Props): Node => {
   const classes = useStyles()
+
 
   return (
     <Section id={id} title={title} scrollRef={scrollRef} backgroundColor='#1F1F1F'>
