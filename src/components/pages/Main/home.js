@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core'
 
 import Titles from './titles'
-import Icon from 'src/components/common/Icon'
+import Icon from 'components/common/Icon'
 
 import type { BasicInfo } from 'types'
 import type { Node, Ref } from 'react'

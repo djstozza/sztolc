@@ -16,9 +16,9 @@ import WebIcon from '@material-ui/icons/Web'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 
-import Header from 'src/components/common/Header'
-import Section from 'src/components/common/Section'
-import { LinkRenderer, LinkList, Description } from 'src/components/helpers'
+import Header from 'components/common/Header'
+import Section from 'components/common/Section'
+import { LinkRenderer, LinkList, Description } from 'components/helpers'
 
 import type { Data, SectionBase } from 'types'
 import type { Node } from 'react'

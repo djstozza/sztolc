@@ -54,7 +54,7 @@ const App = (): Node => {
           <Route
             exact
             path='/'
-            render={(props) => <Main {...props} data={data} menuOpen={isOpen} />}
+            render={(props) => <Main {...props} data={data} menuOpen={isOpen} setMenuOpen={setMenuOpen} />}
           />
           <Route
             exact

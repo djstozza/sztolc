@@ -8,7 +8,7 @@ import {
 import classnames from 'classnames'
 import 'devicon'
 
-import Section from 'src/components/common/Section'
+import Section from 'components/common/Section'
 
 import type { Skills as SkillsType, RefObject } from 'types'
 import type { Node } from 'react'

@@ -10,7 +10,7 @@ import {
 import classnames from 'classnames'
 
 import Icon from '../Icon'
-import { ContentsItem } from 'src/components/helpers'
+import { ContentsItem } from 'components/helpers'
 
 import type { SectionBase, BasicInfo, RefObject } from 'types'
 import type { Node } from 'react'
@@ -19,7 +19,8 @@ type Props = {
   currentElementIndexInViewport?: number,
   contents: SectionBase[],
   refs?: RefObject[],
-  menuOpen: boolean
+  menuOpen: boolean,
+  setMenuOpen?: Function
 } & BasicInfo
 
 const useStyles = makeStyles(theme => ({
@@ -103,14 +104,16 @@ const Header = ({
   currentElementIndexInViewport,
   contents=[],
   refs = [],
-  menuOpen
+  menuOpen,
+  setMenuOpen
 }: Props): Node => {
   const classes = useStyles()
   const history = useHistory()
 
-  const executeScroll = ({ current }, id) => {
+  const handleClick = ({ current }, id) => {
     if (current) current.scrollIntoView({ behavior: 'smooth' })
     history.push(`/#${id}`)
+    setMenuOpen && setMenuOpen(false)
   }
 
   return (
@@ -147,7 +150,7 @@ const Header = ({
                     divWrapper={
                       (children) => (
                         <div
-                          onClick={() => executeScroll(refs[i], id)}
+                          onClick={() => handleClick(refs[i], id)}
                           className={
                             classnames(
                               classes.navLink,

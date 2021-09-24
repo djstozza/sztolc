@@ -4,7 +4,7 @@ import React, { useRef } from 'react'
 import { Box } from '@material-ui/core'
 import { Scrollspy } from '@makotot/ghostui'
 
-import Header from 'src/components/common/Header'
+import Header from 'components/common/Header'
 import Home from './home'
 import About from './about'
 import Experience from './experience'
@@ -14,7 +14,7 @@ import Skills from './skills'
 import type { Data, SectionBase } from 'types'
 import type { Node } from 'react'
 
-const Main = ({ data, menuOpen }:{ data: Data, menuOpen: boolean }): Node => {
+const Main = ({ data, menuOpen, setMenuOpen }:{ data: Data, menuOpen: boolean, setMenuOpen: boolean }): Node => {
   const homeRef = useRef()
   const aboutRef = useRef()
   const skillsRef = useRef()
@@ -45,6 +45,7 @@ const Main = ({ data, menuOpen }:{ data: Data, menuOpen: boolean }): Node => {
               contents={contents}
               currentElementIndexInViewport={currentElementIndexInViewport}
               menuOpen={menuOpen}
+              setMenuOpen={setMenuOpen}
             />
             <div id='main'>
               <Home {...basicInfo} scrollRef={homeRef} />

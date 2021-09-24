@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
-import Section from 'src/components/common/Section'
+import Section from 'components/common/Section'
 
 import type { Projects as ProjectsType, RefObject } from 'types'
 import type { Node } from 'react'

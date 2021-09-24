@@ -13,7 +13,7 @@ import {
   makeStyles
 } from '@material-ui/core'
 
-import Section from 'src/components/common/Section'
+import Section from 'components/common/Section'
 
 import type { Experience as ExperienceType, RefObject } from 'types'
 import type { Node } from 'react'
