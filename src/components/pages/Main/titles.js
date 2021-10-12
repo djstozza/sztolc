@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useEffect, useState } from 'react'
-import Typical from 'react-typical'
+import Typewriter from 'typewriter-effect'
 import { makeStyles } from '@material-ui/core'
 
 import type { Node } from 'react'
@@ -19,13 +19,19 @@ const Titles = ({ titles = [] }:{ titles: string[] }): Node => {
 
   useEffect(
     () => {
-      setTitlesRenderer(titles.map(title => [title.toUpperCase(), 2000] ).flat())
+      setTitlesRenderer(titles.map(title => title.toUpperCase()))
     }, [setTitlesRenderer, titles]
   )
 
   return (
     <div className={classes.subtitleContainer}>
-      <Typical steps={titlesRenderer} loop={Infinity} wrapper='div' />
+      <Typewriter
+        options={{
+          strings: titlesRenderer,
+          autoStart: true,
+          loop: true
+        }}
+      />
     </div>
   )
 }
