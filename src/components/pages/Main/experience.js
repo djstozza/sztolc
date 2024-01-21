@@ -11,7 +11,7 @@ import {
   Chip,
   Typography,
   makeStyles
-} from '@material-ui/core'
+} from '@mui/material'
 
 import Section from 'components/common/Section'
 

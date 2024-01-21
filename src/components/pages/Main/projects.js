@@ -5,7 +5,7 @@ import {
   Typography,
   Grid,
   makeStyles
-} from '@material-ui/core'
+} from '@mui/material'
 import { Link } from 'react-router-dom'
 
 import Section from 'components/common/Section'

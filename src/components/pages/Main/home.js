@@ -4,7 +4,7 @@ import React from 'react'
 import {
   Typography,
   makeStyles
-} from '@material-ui/core'
+} from '@mui/material'
 
 import Titles from './titles'
 import Icon from 'components/common/Icon'

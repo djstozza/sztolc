@@ -4,7 +4,7 @@ import React from 'react'
 import {
   Typography,
   makeStyles
-} from '@material-ui/core'
+} from '@mui/material'
 import classnames from 'classnames'
 import 'devicon'
 

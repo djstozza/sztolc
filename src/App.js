@@ -6,10 +6,10 @@ import {
   useTheme,
   useMediaQuery,
   makeStyles
-} from '@material-ui/core'
+} from '@mui/material'
 
-import MenuIcon from '@material-ui/icons/Menu'
-import CloseIcon from '@material-ui/icons/Close'
+import MenuIcon from '@mui/icons-material/Menu'
+import CloseIcon from '@mui/icons-material/Close'
 import './App.scss'
 import data from './data/data.json'
 

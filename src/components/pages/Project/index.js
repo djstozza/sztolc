@@ -7,12 +7,12 @@ import {
   Grid,
   Chip,
   makeStyles
-} from '@material-ui/core'
+} from '@mui/material'
 import ReactMarkdown from 'react-markdown'
-import GitHubIcon from '@material-ui/icons/GitHub'
-import BuildIcon from '@material-ui/icons/Build'
-import FindInPageIcon from '@material-ui/icons/FindInPage'
-import WebIcon from '@material-ui/icons/Web'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import BuildIcon from '@mui/icons-material/Build'
+import FindInPageIcon from '@mui/icons-material/FindInPage'
+import WebIcon from '@mui/icons-material/Web'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 

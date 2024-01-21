@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useRef } from 'react'
-import { Box } from '@material-ui/core'
+import { Box } from '@mui/material'
 import { Scrollspy } from '@makotot/ghostui'
 
 import Header from 'components/common/Header'

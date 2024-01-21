@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom'
 import {
   Box,
   makeStyles
-} from '@material-ui/core'
+} from '@mui/material'
 
 import Title from './title'
 

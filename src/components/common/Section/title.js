@@ -5,7 +5,7 @@ import {
   Box,
   Typography,
   makeStyles
-} from '@material-ui/core'
+} from '@mui/material'
 import classnames from 'classnames'
 
 import type { Node } from 'react'

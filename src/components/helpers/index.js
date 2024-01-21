@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import {  makeStyles } from '@material-ui/core'
+import {  makeStyles } from '@mui/material'
 
 import type { Node, Element } from 'react'
 

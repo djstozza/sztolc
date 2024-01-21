@@ -6,7 +6,7 @@ import {
   Box,
   Typography,
   makeStyles
-} from '@material-ui/core'
+} from '@mui/material'
 import classnames from 'classnames'
 
 import Icon from '../Icon'
