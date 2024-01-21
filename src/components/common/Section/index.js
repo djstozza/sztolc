@@ -10,11 +10,11 @@ import Title from './title'
 import type { RefObject } from 'types'
 import type { Node } from 'react'
 
-const useStyles = makeStyles()(theme => ({
+const useStyles = makeStyles()((theme, { backgroundColor = '#ffffff' }) => ({
   root: {
-    backgroundColor: ({ backgroundColor = '#ffffff' }:{ backgroundColor?: string }) => backgroundColor
+    backgroundColor: backgroundColor
   }
-}));
+}))
 
 type Props = {
   id?: string,

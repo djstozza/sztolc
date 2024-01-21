@@ -31,13 +31,13 @@ const useStyles = makeStyles()(theme => ({
     width: theme.spacing(37.5),
     transition: 'all ease-in-out 0.5s',
     zIndex: 9999,
-    padding: `0px ${theme.spacing(2)}px`,
+    padding: `0px ${theme.spacing(2)}`,
     backgroundColor: '#030a13',
     overflowY: 'auto',
     color: '#ffffff'
   },
   profileImage: {
-    margin: `${theme.spacing(2)}px auto`,
+    margin: `${theme.spacing(2)} auto`,
     display: 'block',
     width: theme.spacing(15),
     height: theme.spacing(17),

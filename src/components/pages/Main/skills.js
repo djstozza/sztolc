@@ -18,7 +18,7 @@ const useStyles = makeStyles()(theme => ({
   },
   skillsTile: {
     backgroundColor: '#292a28',
-    padding: `${theme.spacing(2)}px ${theme.spacing(2)}px ${theme.spacing(1)}px ${theme.spacing(2)}px`,
+    padding: `${theme.spacing(2)} ${theme.spacing(2)} ${theme.spacing(1)} ${theme.spacing(2)}`,
     width: theme.spacing(10),
     margin: theme.spacing(1),
     borderRadius: theme.spacing(1),
@@ -26,7 +26,7 @@ const useStyles = makeStyles()(theme => ({
     textAlign: 'center',
     [theme.breakpoints.down(600)]: {
       width: theme.spacing(7),
-      padding: `${theme.spacing(1.5)}px ${theme.spacing(1.5)}px ${theme.spacing(1)}px ${theme.spacing(1.5)}px`
+      padding: `${theme.spacing(1.5)} ${theme.spacing(1.5)} ${theme.spacing(1)} ${theme.spacing(1.5)}`
     }
   },
   caption: {

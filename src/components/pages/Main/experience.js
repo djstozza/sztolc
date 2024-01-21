@@ -23,7 +23,7 @@ type Props = { scrollRef: RefObject } & ExperienceType
 const useStyles = makeStyles()(theme => ({
   dateTitle: {
     [theme.breakpoints.up(1170)]: {
-      margin: `0px ${theme.spacing(1)}px`,
+      margin: `0px ${theme.spacing(1)}`,
       color: '#ffffff'
     }
   },

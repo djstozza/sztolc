@@ -5,9 +5,10 @@ import {
   Typography,
   Box,
   Grid,
-  Chip,
-  makeStyles
+  Chip
 } from '@mui/material'
+import { useParams } from 'react-router-dom'
+import { makeStyles } from 'tss-react/mui';
 import ReactMarkdown from 'react-markdown'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import BuildIcon from '@mui/icons-material/Build'
@@ -25,11 +26,10 @@ import type { Node } from 'react'
 
 type Props = {
   data: Data,
-  match: { params: { id: string } },
   menuOpen: boolean
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   image: {
     width: '100%'
   },
@@ -43,11 +43,12 @@ const useStyles = makeStyles((theme) => ({
   paragraph: {
     marginBottom: theme.spacing(1.5)
   }
-}))
+}));
 
-const Project = ({ data, match: { params: { id } }, menuOpen }: Props): Node => {
+const Project = ({ data, menuOpen }: Props): Node => {
   const { basicInfo, projects: { projects } } = data
-  const classes = useStyles()
+  const { classes } = useStyles()
+  const { id } = useParams()
 
   const dataValues: any = Object.values(data)
   const contents: SectionBase[] = dataValues.map(({ id, title, icon }) => ({ id, title, icon }))
