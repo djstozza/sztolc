@@ -54,12 +54,12 @@ const App = (): Node => {
           <Route
             exact
             path='/'
-            render={(props) => <Main {...props} data={data} menuOpen={isOpen} setMenuOpen={setMenuOpen} />}
+            element={<Main data={data} menuOpen={isOpen} setMenuOpen={setMenuOpen} />}
           />
           <Route
             exact
             path='/projects/:id'
-            render={(props) => <Project {...props} data={data} menuOpen={isOpen} />} />
+            element={<Project data={data} menuOpen={isOpen} />} />
         </Routes>
       </Router>
     </Suspense>

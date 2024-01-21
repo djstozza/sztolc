@@ -107,11 +107,11 @@ const Header = ({
   setMenuOpen
 }: Props): Node => {
   const { classes, cx } = useStyles()
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const handleClick = ({ current }, id) => {
     if (current) current.scrollIntoView({ behavior: 'smooth' })
-    history.push(`/#${id}`)
+    navigate(`/#${id}`)
     setMenuOpen && setMenuOpen(false)
   }
 
