@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -108,7 +108,7 @@ const Header = ({
   setMenuOpen
 }: Props): Node => {
   const classes = useStyles()
-  const history = useHistory()
+  const history = useNavigate()
 
   const handleClick = ({ current }, id) => {
     if (current) current.scrollIntoView({ behavior: 'smooth' })
