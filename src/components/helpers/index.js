@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import {  makeStyles } from '@mui/material'
+import { makeStyles } from 'tss-react/mui';
 
 import type { Node, Element } from 'react'
 
@@ -21,7 +21,7 @@ type LinkListProps = {
   list: List[]
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   externalLink: {
     textDecoration: 'none',
     '&:hover': {
@@ -35,14 +35,14 @@ const useStyles = makeStyles((theme) => ({
   descriptionText: {
     marginLeft: theme.spacing(1)
   }
-}))
+}));
 
 export const ContentsItem = ({ condition, divWrapper, linkWrapper, children }: ContentsItemProps): Element<any> => {
   return condition ? divWrapper(children) : linkWrapper(children)
 }
 
 export const LinkRenderer = ({ href, children }:{ href: string, children: any }): Node => {
-  const classes = useStyles()
+  const { classes } = useStyles()
 
   return <a className={classes.externalLink} href={href} target='_blank' rel='noopener noreferrer'>{children}</a>
 }
@@ -54,7 +54,7 @@ export const LinkList = ({ list }: LinkListProps): Node => (
 )
 
 export const Description = ({ icon, descriptionText }:{ icon: Element<'div'>, descriptionText: string }): Node => {
-  const classes = useStyles()
+  const { classes } = useStyles()
 
   return (
     <div className={classes.description}>

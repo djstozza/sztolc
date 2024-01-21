@@ -3,10 +3,10 @@
 import React from 'react'
 import {
   Typography,
-  Grid,
-  makeStyles
+  Grid
 } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { makeStyles } from 'tss-react/mui'
 
 import Section from 'components/common/Section'
 
@@ -15,15 +15,15 @@ import type { Node } from 'react'
 
 type Props = { scrollRef: RefObject } & ProjectsType
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   image: {
     width: '100%',
     cursor: 'pointer'
   }
-}))
+}));
 
 const Projects = ({ id, title, projects, scrollRef }: Props): Node => {
-  const classes = useStyles()
+  const { classes } = useStyles()
   return (
     <Section id={id} title={title} scrollRef={scrollRef}>
       <Grid container spacing={1}>

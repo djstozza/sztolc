@@ -3,18 +3,17 @@
 import React from 'react'
 import {
   Box,
-  Typography,
-  makeStyles
+  Typography
 } from '@mui/material'
-import classnames from 'classnames'
+import { makeStyles } from 'tss-react/mui';
 
 import type { Node } from 'react'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   whiteTitle: {
     color: '#ffffff'
   }
-}))
+}));
 
 type Props = {
   title: string,
@@ -22,19 +21,19 @@ type Props = {
 }
 
 const Title = ({ title, whiteTitle }: Props): Node => {
-  const classes = useStyles()
+  const { classes, cx } = useStyles()
 
   return (
     <Box mx='auto' mb={3} pt={6}>
       <Typography
         align='center'
         variant='h5'
-        className={classnames({ [classes.whiteTitle]: whiteTitle })}
+        className={cx({ [classes.whiteTitle]: whiteTitle })}
       >
         {title}
       </Typography>
     </Box>
-  )
+  );
 }
 
 export default Title

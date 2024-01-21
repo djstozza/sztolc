@@ -1,8 +1,7 @@
 // @flow
 
 import React from 'react'
-import classnames from 'classnames'
-import { makeStyles } from '@mui/material'
+import { makeStyles } from 'tss-react/mui';
 
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined'
 import AppsIcon from '@mui/icons-material/Apps'
@@ -24,17 +23,17 @@ type Props = {
   noMargin?: boolean
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   icon: {
     height: theme.spacing(3)
   },
   large: {
     zoom: '125%'
   }
-}))
+}));
 
 const Icon = ({ icon, large, noMargin }: Props): Node => {
-  const classes = useStyles()
+  const { classes, cx } = useStyles()
 
   const icons = {
     'AppsIcon': AppsIcon,
@@ -53,9 +52,9 @@ const Icon = ({ icon, large, noMargin }: Props): Node => {
 
   return (
     <DynamicIcon
-      className={classnames(classes.icon, { [classes.large]: large, [classes.noMargin]: noMargin })}
+      className={cx(classes.icon, { [classes.large]: large, [classes.noMargin]: noMargin })}
     />
-  )
+  );
 }
 
 export default Icon

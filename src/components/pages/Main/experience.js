@@ -10,8 +10,8 @@ import {
   Box,
   Chip,
   Typography,
-  makeStyles
 } from '@mui/material'
+import { makeStyles } from 'tss-react/mui'
 
 import Section from 'components/common/Section'
 
@@ -20,7 +20,7 @@ import type { Node } from 'react'
 
 type Props = { scrollRef: RefObject } & ExperienceType
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   dateTitle: {
     [theme.breakpoints.up(1170)]: {
       margin: `0px ${theme.spacing(1)}px`,
@@ -33,10 +33,10 @@ const useStyles = makeStyles(theme => ({
       maxWidth: theme.spacing(7.5)
     }
   }
-}))
+}));
 
 const Experience = ({ id, title, jobs = [], scrollRef }: Props): Node => {
-  const classes = useStyles()
+  const { classes } = useStyles()
 
   return (
     <Section id={id} title={title} scrollRef={scrollRef} backgroundColor='#191970'>

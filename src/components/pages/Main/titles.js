@@ -2,20 +2,20 @@
 
 import React, { useEffect, useState } from 'react'
 import Typewriter from 'typewriter-effect'
-import { makeStyles } from '@mui/material'
+import { makeStyles } from 'tss-react/mui'
 
 import type { Node } from 'react'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   subtitleContainer: {
     height: theme.spacing(8),
     fontWeight: 'normal'
   }
-}))
+}));
 
 const Titles = ({ titles = [] }:{ titles: string[] }): Node => {
   const [titlesRenderer, setTitlesRenderer] = useState([])
-  const classes = useStyles()
+  const { classes } = useStyles()
 
   useEffect(
     () => {

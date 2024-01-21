@@ -1,11 +1,8 @@
 // @flow
 
 import React from 'react'
-import {
-  Typography,
-  makeStyles
-} from '@mui/material'
-import classnames from 'classnames'
+import { Typography } from '@mui/material'
+import { makeStyles } from 'tss-react/mui'
 import 'devicon'
 
 import Section from 'components/common/Section'
@@ -15,7 +12,7 @@ import type { Node } from 'react'
 
 type Props = { scrollRef: RefObject } & SkillsType
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   inlineIconList: {
     textAlign: 'center'
   },
@@ -44,10 +41,10 @@ const useStyles = makeStyles(theme => ({
   skillIcon: {
     fontSize: theme.spacing(6)
   }
-}))
+}));
 
 const Skills = ({ id, title, icons = [], scrollRef }: Props): Node => {
-  const classes = useStyles()
+  const { classes, cx } = useStyles()
 
 
   return (
@@ -57,7 +54,7 @@ const Skills = ({ id, title, icons = [], scrollRef }: Props): Node => {
           icons.map(({ name, className }, i) => (
             <div className={classes.skillIconContainer} key={i}>
               <div className={classes.skillsTile}>
-                <i className={classnames(className, classes.skillIcon)}>
+                <i className={cx(className, classes.skillIcon)}>
                   <Typography
                     component='p'
                     variant='caption'
@@ -73,7 +70,7 @@ const Skills = ({ id, title, icons = [], scrollRef }: Props): Node => {
         }
       </div>
     </Section>
-  )
+  );
 }
 
 export default Skills;

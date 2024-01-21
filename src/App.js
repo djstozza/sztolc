@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import {
   IconButton,
   useTheme,
-  useMediaQuery,
-  makeStyles
+  useMediaQuery
 } from '@mui/material'
+import { makeStyles } from 'tss-react/mui'
 
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
@@ -20,7 +20,7 @@ const Project = lazy(() => import('./components/pages/Project'))
 
 const renderLoader = () => <div id='load-screen'><div className='spinner' /></div>
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   openMenuButton: {
     position: 'fixed',
     top: theme.spacing(1),
@@ -31,10 +31,10 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: '#b3b3b3'
     }
   }
-}))
+}));
 
 const App = (): Node => {
-  const classes = useStyles()
+  const { classes } = useStyles()
   const theme = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
   const hideMenuOpen = useMediaQuery(theme.breakpoints.up(1170))

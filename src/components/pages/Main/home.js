@@ -1,10 +1,9 @@
 // @flow
 
 import React from 'react'
-import {
-  Typography,
-  makeStyles
-} from '@mui/material'
+import { Typography } from '@mui/material'
+import { makeStyles } from 'tss-react/mui'
+
 
 import Titles from './titles'
 import Icon from 'components/common/Icon'
@@ -14,7 +13,7 @@ import type { Node, Ref } from 'react'
 
 type Props = { scrollRef: Ref<'div'> } & BasicInfo
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   root: {
     position: 'relative',
     height: '100vh',
@@ -84,10 +83,10 @@ const useStyles = makeStyles(theme => ({
   iconContainer: {
     marginTop: theme.spacing(1)
   }
-}))
+}));
 
 const Home = ({ id, name, social = [], titles = [], scrollRef }: Props): Node => {
-  const classes = useStyles()
+  const { classes } = useStyles()
 
   return (
     <div

@@ -4,10 +4,9 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
-  Typography,
-  makeStyles
+  Typography
 } from '@mui/material'
-import classnames from 'classnames'
+import { makeStyles } from 'tss-react/mui';
 
 import Icon from '../Icon'
 import { ContentsItem } from 'components/helpers'
@@ -23,7 +22,7 @@ type Props = {
   setMenuOpen?: Function
 } & BasicInfo
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   header: {
     position: 'fixed',
     top: 0,
@@ -95,7 +94,7 @@ const useStyles = makeStyles(theme => ({
   showHeader: {
     marginLeft: theme.spacing(41.25)
   }
-}))
+}));
 
 const Header = ({
   name,
@@ -107,7 +106,7 @@ const Header = ({
   menuOpen,
   setMenuOpen
 }: Props): Node => {
-  const classes = useStyles()
+  const { classes, cx } = useStyles()
   const history = useNavigate()
 
   const handleClick = ({ current }, id) => {
@@ -117,7 +116,7 @@ const Header = ({
   }
 
   return (
-    <header id='header' className={classnames(classes.header, { [classes.showHeader]: menuOpen })}>
+    <header id='header' className={cx(classes.header, { [classes.showHeader]: menuOpen })}>
       <div className={classes.container}>
         <div>
           <img src={image} alt='profile' className={classes.profileImage} />
@@ -152,7 +151,7 @@ const Header = ({
                         <div
                           onClick={() => handleClick(refs[i], id)}
                           className={
-                            classnames(
+                            cx(
                               classes.navLink,
                               {
                                 [classes.active]: currentElementIndexInViewport === i
@@ -176,7 +175,7 @@ const Header = ({
         </ul>
       </div>
     </header>
-  )
+  );
 }
 
 export default Header;
