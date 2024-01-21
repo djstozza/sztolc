@@ -1,6 +1,6 @@
 // @flow
 import React, { lazy, useState, Suspense } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import {
   IconButton,
   useTheme,
@@ -50,7 +50,7 @@ const App = (): Node => {
       }
 
       <Router>
-        <Switch>
+        <Routes>
           <Route
             exact
             path='/'
@@ -60,7 +60,7 @@ const App = (): Node => {
             exact
             path='/projects/:id'
             render={(props) => <Project {...props} data={data} menuOpen={isOpen} />} />
-        </Switch>
+        </Routes>
       </Router>
     </Suspense>
   )
