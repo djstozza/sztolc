@@ -93,13 +93,29 @@
     "icon": "TimelineOutlinedIcon",
     "jobs": [
       {
+        "company": "Shiftcare",
+        "title": "Senior Software Developer",
+        "years": "Dec 2021 - Present",
+        "image": "/images/shiftcare_logo.webp",
+        "description": [
+          "A management platform for aged care and disability support providers that offers features like rostering, invoicing and document management.",
+          "It consists of a Rails App with a Vue frontend and a React Native mobile app. I am tasked with maintaining the codebase, increasing performance and delivering features."
+        ],
+        "technologies": [
+          "Ruby on Rails",
+          "Vue",
+          "React Native",
+          "PostgreSQL"
+        ]
+      },
+      {
         "company": "RCPA Quality Assurance Programs",
         "title": "Senior Software Developer",
-        "years": "Mar 2019 - Present",
+        "years": "Mar 2019 - Dec 2021",
         "image": "/images/rcpaqap.webp",
         "description": [
           "The quality assurance arm of the Royal College of Pathologists of Australasia, which offers accreditation to pathology labs in over 80 countries.",
-          "My responsibilities involve maintaining and expanding the features of the user interface. The interface consists of a Rails API and React app, which allows users to input data, view reports, as well as analyse results."
+          "My responsibilities involved maintaining and expanding the features of the user interface. The interface consists of a Rails API and React app, which allows users to input data, view reports, as well as analyse results."
         ],
         "technologies": [
           "Ruby on Rails",
