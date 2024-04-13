@@ -13,8 +13,6 @@ import CloseIcon from '@mui/icons-material/Close'
 import './App.scss'
 import data from './data/data.json'
 
-import type { Node } from 'react'
-
 const Main = lazy(() => import('./components/pages/Main'))
 const Project = lazy(() => import('./components/pages/Project'))
 
@@ -33,7 +31,7 @@ const useStyles = makeStyles()(theme => ({
   }
 }));
 
-const App = (): Node => {
+const App = () => {
   const { classes } = useStyles()
   const theme = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
