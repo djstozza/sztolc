@@ -176,7 +176,7 @@
           "/images/portfolio/fpl-app/fpl-app-3.webp",
           "/images/portfolio/fpl-app/fpl-app-4.webp"
         ],
-        "projectLink": { "name": "FPL App", "url": "https://fpl-app-fe.herokuapp.com" },
+        "projectLink": { "name": "FPL App", "url": "https://fpl-app-fe.vercel.app/" },
         "githubLinks": [
           { "name": "FPL App API", "url": "https://github.com/djstozza/fpl-app-api" },
           { "name": "FPL App Fe", "url": "https://github.com/djstozza/fpl-app-fe" }
@@ -200,36 +200,6 @@
           "Devise",
           "JWT",
           "Lodash"
-        ]
-      },
-      {
-        "id": "trump-tweet",
-        "title": "Trump Tweet",
-        "description": [
-          "Ever wondered what it would be like to be insulted on Twitter by the 45th President of the United States?",
-          "Trump Tweet is a Vue app with an Express server. It allows users to fill in a form by entering a name or Twitter handle into a text field and selecting a phrase i.e. Lyin' Ted or Crooked Hillary. Once the form is submitted, a call is made to a SearchBox ElasticSearch instance to obtain tweets that match the phrase. A random tweet is then selected and posted as a status update to [@hoaxDonalTrump](https://twitter.com/hoaxDonalTrump) with the name substitution.",
-          "#MTGA (Make Twitter Great Again)!"
-        ],
-        "images": [
-          "/images/portfolio/trump-tweet/trump-tweet-1.webp",
-          "/images/portfolio/trump-tweet/trump-tweet-2.webp",
-          "/images/portfolio/trump-tweet/trump-tweet-3.webp"
-        ],
-        "projectLink": { "name": "Trump Tweet", "url": "https://donald-trump-tweet.herokuapp.com/#/" },
-        "githubLinks": [
-          { "name": "Trump Tweet", "url": "https://github.com/djstozza/trump-tweet" }
-        ],
-        "referenceLinks": [
-          { "name": "Trump Twitter Archive", "url": "https://www.thetrumparchive.com/" }
-        ],
-        "technologies": [
-          "Vue",
-          "Vuex",
-          "Vuetify",
-          "Express",
-          "TypeScript",
-          "Socket.IO",
-          "Twitter"
         ]
       }
     ]
