@@ -1,28 +1,25 @@
-// @flow
-
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import {
   Box,
   Typography
 } from '@mui/material'
-import { makeStyles } from 'tss-react/mui';
+import { makeStyles } from 'tss-react/mui'
 
 import Icon from '../Icon'
 import { ContentsItem } from 'components/helpers'
 
 import type { SectionBase, BasicInfo, RefObject } from 'types'
-import type { Node } from 'react'
 
 type Props = {
   currentElementIndexInViewport?: number,
   contents: SectionBase[],
   refs?: RefObject[],
   menuOpen: boolean,
-  setMenuOpen?: Function
+  setMenuOpen?: (open: boolean) => void
 } & BasicInfo
 
 const useStyles = makeStyles()(theme => ({
+  container: {},
   header: {
     position: 'fixed',
     top: 0,
@@ -94,22 +91,22 @@ const useStyles = makeStyles()(theme => ({
   showHeader: {
     marginLeft: theme.spacing(41.25)
   }
-}));
+}))
 
 const Header = ({
   name,
   image,
   social = [],
   currentElementIndexInViewport,
-  contents=[],
+  contents = [],
   refs = [],
   menuOpen,
   setMenuOpen
-}: Props): Node => {
+}: Props) => {
   const { classes, cx } = useStyles()
   const navigate = useNavigate()
 
-  const handleClick = ({ current }, id) => {
+  const handleClick = ({ current }: RefObject, id: string) => {
     if (current) current.scrollIntoView({ behavior: 'smooth' })
     navigate(`/#${id}`)
     setMenuOpen && setMenuOpen(false)
@@ -175,7 +172,7 @@ const Header = ({
         </ul>
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

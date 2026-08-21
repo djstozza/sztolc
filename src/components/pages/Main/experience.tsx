@@ -1,22 +1,18 @@
-// @flow
-
-import React from 'react'
 import {
   VerticalTimeline,
-  VerticalTimelineElement,
+  VerticalTimelineElement
 } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
 import {
   Box,
   Chip,
-  Typography,
+  Typography
 } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 
 import Section from 'components/common/Section'
 
 import type { Experience as ExperienceType, RefObject } from 'types'
-import type { Node } from 'react'
 
 type Props = { scrollRef: RefObject } & ExperienceType
 
@@ -33,9 +29,9 @@ const useStyles = makeStyles()(theme => ({
       maxWidth: theme.spacing(7.5)
     }
   }
-}));
+}))
 
-const Experience = ({ id, title, jobs = [], scrollRef }: Props): Node => {
+const Experience = ({ id, title, jobs = [], scrollRef }: Props) => {
   const { classes } = useStyles()
 
   return (
@@ -72,4 +68,4 @@ const Experience = ({ id, title, jobs = [], scrollRef }: Props): Node => {
   )
 }
 
-export default Experience;
+export default Experience

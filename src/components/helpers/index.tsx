@@ -1,15 +1,11 @@
-// @flow
-
 import React from 'react'
-import { makeStyles } from 'tss-react/mui';
-
-import type { Node, Element } from 'react'
+import { makeStyles } from 'tss-react/mui'
 
 type ContentsItemProps = {
   condition: boolean,
-  divWrapper: (any) => Element<any>,
-  linkWrapper: (any) => Element<any>,
-  children: any
+  divWrapper: (children: React.ReactNode) => React.ReactNode,
+  linkWrapper: (children: React.ReactNode) => React.ReactNode,
+  children: React.ReactNode
 }
 
 type List = {
@@ -35,25 +31,25 @@ const useStyles = makeStyles()((theme) => ({
   descriptionText: {
     marginLeft: theme.spacing(1)
   }
-}));
+}))
 
-export const ContentsItem = ({ condition, divWrapper, linkWrapper, children }: ContentsItemProps): Element<any> => {
+export const ContentsItem = ({ condition, divWrapper, linkWrapper, children }: ContentsItemProps) => {
   return condition ? divWrapper(children) : linkWrapper(children)
 }
 
-export const LinkRenderer = ({ href, children }:{ href: string, children: any }): Node => {
+export const LinkRenderer = ({ href, children }: { href: string, children: React.ReactNode }) => {
   const { classes } = useStyles()
 
   return <a className={classes.externalLink} href={href} target='_blank' rel='noopener noreferrer'>{children}</a>
 }
 
-export const LinkList = ({ list }: LinkListProps): Node => (
+export const LinkList = ({ list }: LinkListProps) => (
   list.map(({ url, name }, i) => (
     <LinkRenderer href={url} key={i}>{name}</LinkRenderer>
-  )).reduce((prev, curr) => [prev, ', ', curr])
+  )).reduce<React.ReactNode>((prev, curr, i) => (i === 0 ? curr : [prev, ', ', curr]), null)
 )
 
-export const Description = ({ icon, descriptionText }:{ icon: Element<'div'>, descriptionText: string }): Node => {
+export const Description = ({ icon, descriptionText }: { icon: React.ReactNode, descriptionText: string }) => {
   const { classes } = useStyles()
 
   return (

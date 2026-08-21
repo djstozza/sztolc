@@ -1,6 +1,3 @@
-// @flow
-
-import React from 'react'
 import {
   Typography,
   Grid
@@ -11,18 +8,17 @@ import { makeStyles } from 'tss-react/mui'
 import Section from 'components/common/Section'
 
 import type { Projects as ProjectsType, RefObject } from 'types'
-import type { Node } from 'react'
 
 type Props = { scrollRef: RefObject } & ProjectsType
 
-const useStyles = makeStyles()(theme => ({
+const useStyles = makeStyles()(_theme => ({
   image: {
     width: '100%',
     cursor: 'pointer'
   }
-}));
+}))
 
-const Projects = ({ id, title, projects, scrollRef }: Props): Node => {
+const Projects = ({ id, title, projects, scrollRef }: Props) => {
   const { classes } = useStyles()
   return (
     <Section id={id} title={title} scrollRef={scrollRef}>

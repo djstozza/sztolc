@@ -1,7 +1,5 @@
-// @flow
-
 import React from 'react'
-import { makeStyles } from 'tss-react/mui';
+import { makeStyles } from 'tss-react/mui'
 
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined'
 import AppsIcon from '@mui/icons-material/Apps'
@@ -15,8 +13,6 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import PhoneIcon from '@mui/icons-material/Phone'
 import TwitterIcon from '@mui/icons-material/Twitter'
 
-import type { Node } from 'react'
-
 type Props = {
   icon: string,
   large?: boolean,
@@ -29,32 +25,34 @@ const useStyles = makeStyles()(theme => ({
   },
   large: {
     zoom: '125%'
-  }
-}));
+  },
+  noMargin: {}
+}))
 
-const Icon = ({ icon, large, noMargin }: Props): Node => {
+const icons: Record<string, React.ComponentType<{ className?: string }>> = {
+  AppsIcon,
+  EmailIcon,
+  FacebookIcon,
+  FormatListBulletedIcon,
+  GitHubIcon,
+  HomeOutlinedIcon,
+  LinkedInIcon,
+  PersonOutlineOutlinedIcon,
+  PhoneIcon,
+  TimelineOutlinedIcon,
+  TwitterIcon
+}
+
+const Icon = ({ icon, large, noMargin }: Props) => {
   const { classes, cx } = useStyles()
 
-  const icons = {
-    'AppsIcon': AppsIcon,
-    'EmailIcon': EmailIcon,
-    'FacebookIcon': FacebookIcon,
-    'FormatListBulletedIcon': FormatListBulletedIcon,
-    'GitHubIcon': GitHubIcon,
-    'HomeOutlinedIcon': HomeOutlinedIcon,
-    'LinkedInIcon': LinkedInIcon,
-    'PersonOutlineOutlinedIcon': PersonOutlineOutlinedIcon,
-    'PhoneIcon': PhoneIcon,
-    'TimelineOutlinedIcon': TimelineOutlinedIcon,
-    'TwitterIcon': TwitterIcon
-  }
   const DynamicIcon = icons[icon]
 
   return (
     <DynamicIcon
       className={cx(classes.icon, { [classes.large]: large, [classes.noMargin]: noMargin })}
     />
-  );
+  )
 }
 
 export default Icon

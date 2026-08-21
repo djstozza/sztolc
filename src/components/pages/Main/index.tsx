@@ -1,6 +1,4 @@
-// @flow
-
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { Box } from '@mui/material'
 import { Scrollspy } from '@makotot/ghostui'
 
@@ -12,14 +10,19 @@ import Projects from './projects'
 import Skills from './skills'
 
 import type { Data, SectionBase } from 'types'
-import type { Node } from 'react'
 
-const Main = ({ data, menuOpen, setMenuOpen }:{ data: Data, menuOpen: boolean, setMenuOpen: boolean }): Node => {
-  const homeRef = useRef()
-  const aboutRef = useRef()
-  const skillsRef = useRef()
-  const experienceRef = useRef()
-  const projectsRef = useRef()
+type Props = {
+  data: Data,
+  menuOpen: boolean,
+  setMenuOpen: (open: boolean) => void
+}
+
+const Main = ({ data, menuOpen, setMenuOpen }: Props) => {
+  const homeRef = useRef<HTMLDivElement>(null)
+  const aboutRef = useRef<HTMLDivElement>(null)
+  const skillsRef = useRef<HTMLDivElement>(null)
+  const experienceRef = useRef<HTMLDivElement>(null)
+  const projectsRef = useRef<HTMLDivElement>(null)
 
   const refs = [
     homeRef,
@@ -29,7 +32,7 @@ const Main = ({ data, menuOpen, setMenuOpen }:{ data: Data, menuOpen: boolean, s
     projectsRef
   ]
 
-  const dataValues: any = Object.values(data)
+  const dataValues = Object.values(data) as SectionBase[]
   const contents: SectionBase[] = dataValues.map(({ id, title, icon }) => ({ id, title, icon }))
 
   const { basicInfo, about, experience, projects, skills } = data

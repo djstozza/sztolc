@@ -1,16 +1,13 @@
-// @flow
-
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Box } from '@mui/material'
-import { makeStyles } from 'tss-react/mui';
+import { makeStyles } from 'tss-react/mui'
 
 import Title from './title'
 
 import type { RefObject } from 'types'
-import type { Node } from 'react'
 
-const useStyles = makeStyles()((theme, { backgroundColor = '#ffffff' }) => ({
+const useStyles = makeStyles<{ backgroundColor?: string }>()((_theme, { backgroundColor = '#ffffff' }) => ({
   root: {
     backgroundColor: backgroundColor
   }
@@ -21,10 +18,10 @@ type Props = {
   title: string,
   backgroundColor?: string,
   scrollRef?: RefObject,
-  children: any
+  children: React.ReactNode
 }
 
-const Section = ({ id, title, backgroundColor, scrollRef, children }: Props): Node => {
+const Section = ({ id, title, backgroundColor, scrollRef, children }: Props) => {
   const { classes } = useStyles({ backgroundColor })
   const { current } = scrollRef || {}
   const { hash } = useLocation()

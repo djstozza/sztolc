@@ -1,6 +1,4 @@
-// @flow
-
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import {
   Typography,
   Box,
@@ -8,7 +6,7 @@ import {
   Chip
 } from '@mui/material'
 import { useParams } from 'react-router-dom'
-import { makeStyles } from 'tss-react/mui';
+import { makeStyles } from 'tss-react/mui'
 import ReactMarkdown from 'react-markdown'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import BuildIcon from '@mui/icons-material/Build'
@@ -22,7 +20,6 @@ import Section from 'components/common/Section'
 import { LinkRenderer, LinkList, Description } from 'components/helpers'
 
 import type { Data, SectionBase } from 'types'
-import type { Node } from 'react'
 
 type Props = {
   data: Data,
@@ -43,14 +40,14 @@ const useStyles = makeStyles()((theme) => ({
   paragraph: {
     marginBottom: theme.spacing(1.5)
   }
-}));
+}))
 
-const Project = ({ data, menuOpen }: Props): Node => {
+const Project = ({ data, menuOpen }: Props) => {
   const { basicInfo, projects: { projects } } = data
   const { classes } = useStyles()
   const { id } = useParams()
 
-  const dataValues: any = Object.values(data)
+  const dataValues = Object.values(data) as SectionBase[]
   const contents: SectionBase[] = dataValues.map(({ id, title, icon }) => ({ id, title, icon }))
 
   const project = projects.find(({ id: projectId }) => projectId === id)
@@ -90,7 +87,7 @@ const Project = ({ data, menuOpen }: Props): Node => {
                 <ReactMarkdown
                   key={i}
                   components={{
-                    a: ({ href, children }) => <LinkRenderer href={href}>{children}</LinkRenderer>,
+                    a: ({ href, children }) => <LinkRenderer href={href ?? ''}>{children}</LinkRenderer>,
                     p: ({ children }) => (
                       <Typography align='justify' className={classes.paragraph}>{children}</Typography>
                     )

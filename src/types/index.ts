@@ -1,6 +1,4 @@
-// @flow
-// export type RefType = null | (HTMLElement & { changeCallback: Function })
-export type RefObject = { current: ?HTMLElement }
+export type RefObject<T extends HTMLElement = HTMLDivElement> = { current: T | null }
 
 export type SectionBase = {
   id: string,

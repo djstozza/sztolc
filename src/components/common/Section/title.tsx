@@ -1,26 +1,21 @@
-// @flow
-
-import React from 'react'
 import {
   Box,
   Typography
 } from '@mui/material'
-import { makeStyles } from 'tss-react/mui';
+import { makeStyles } from 'tss-react/mui'
 
-import type { Node } from 'react'
-
-const useStyles = makeStyles()(theme => ({
+const useStyles = makeStyles()(_theme => ({
   whiteTitle: {
     color: '#ffffff'
   }
-}));
+}))
 
 type Props = {
   title: string,
   whiteTitle?: boolean
 }
 
-const Title = ({ title, whiteTitle }: Props): Node => {
+const Title = ({ title, whiteTitle }: Props) => {
   const { classes, cx } = useStyles()
 
   return (
@@ -33,7 +28,7 @@ const Title = ({ title, whiteTitle }: Props): Node => {
         {title}
       </Typography>
     </Box>
-  );
+  )
 }
 
 export default Title

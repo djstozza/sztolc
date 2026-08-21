@@ -1,5 +1,4 @@
-// @flow
-import React, { lazy, useState, Suspense } from 'react'
+import { lazy, useState, Suspense } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import {
   IconButton,
@@ -29,7 +28,7 @@ const useStyles = makeStyles()(theme => ({
       backgroundColor: '#b3b3b3'
     }
   }
-}));
+}))
 
 const App = () => {
   const { classes } = useStyles()
@@ -50,12 +49,10 @@ const App = () => {
       <Router>
         <Routes>
           <Route
-            exact
             path='/'
             element={<Main data={data} menuOpen={isOpen} setMenuOpen={setMenuOpen} />}
           />
           <Route
-            exact
             path='/projects/:id'
             element={<Project data={data} menuOpen={isOpen} />} />
         </Routes>
@@ -64,4 +61,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App
