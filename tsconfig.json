@@ -19,11 +19,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "baseUrl": "src",
     "paths": {
-      "components/*": ["components/*"],
-      "types": ["types"],
-      "types/*": ["types/*"]
+      "components/*": ["./src/components/*"],
+      "types": ["./src/types"],
+      "types/*": ["./src/types/*"]
     }
   },
   "include": ["src"]

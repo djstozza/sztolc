@@ -19,7 +19,7 @@ const Title = ({ title, whiteTitle }: Props) => {
   const { classes, cx } = useStyles()
 
   return (
-    <Box mx='auto' mb={3} pt={6}>
+    <Box sx={{ mx: 'auto', mb: 3, pt: 6 }}>
       <Typography
         align='center'
         variant='h5'

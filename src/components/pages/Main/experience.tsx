@@ -57,7 +57,7 @@ const Experience = ({ id, title, jobs = [], scrollRef }: Props) => {
 
               {description.map((paragraph, j) => <Typography key={j} align='justify'>{paragraph}</Typography>)}
 
-              <Box mt={2}>
+              <Box sx={{ mt: 2 }}>
                 {technologies.map((technology, i) => <Chip key={i} size='small' label={technology} />)}
               </Box>
             </VerticalTimelineElement>

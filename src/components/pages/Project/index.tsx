@@ -12,8 +12,11 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import BuildIcon from '@mui/icons-material/Build'
 import FindInPageIcon from '@mui/icons-material/FindInPage'
 import WebIcon from '@mui/icons-material/Web'
-import AliceCarousel from 'react-alice-carousel'
+import AliceCarouselImport from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
+
+// react-alice-carousel ships a UMD build; some bundlers don't unwrap its nested default export
+const AliceCarousel = (AliceCarouselImport as unknown as { default?: typeof AliceCarouselImport }).default ?? AliceCarouselImport
 
 import Header from 'components/common/Header'
 import Section from 'components/common/Section'
@@ -63,7 +66,7 @@ const Project = ({ data, menuOpen }: Props) => {
   const { title, description, images, githubLinks, technologies, projectLink, referenceLinks } = project
 
   return (
-    <Box overflow='hidden'>
+    <Box sx={{ overflow: 'hidden' }}>
       <Header
         {...basicInfo}
         contents={contents}
@@ -98,28 +101,28 @@ const Project = ({ data, menuOpen }: Props) => {
               ))
             }
             <Grid container spacing={1}>
-              <Grid item xs={4} sm={3} md={2}>
+              <Grid size={{ xs: 4, sm: 3, md: 2 }}>
                 <Description icon={<GitHubIcon />} descriptionText='GitHub' />
               </Grid>
-              <Grid item xs={8} sm={9} md={10}>
+              <Grid size={{ xs: 8, sm: 9, md: 10 }}>
                 <LinkList list={githubLinks} />
               </Grid>
-              <Grid item xs={4} sm={3} md={2}>
+              <Grid size={{ xs: 4, sm: 3, md: 2 }}>
                 <Description icon={<BuildIcon />} descriptionText='Tech' />
               </Grid>
-              <Grid item xs={8} sm={9} md={10}>
+              <Grid size={{ xs: 8, sm: 9, md: 10 }}>
                 {technologies.map((technology, i) => <Chip key={i} size='small' label={technology} />)}
               </Grid>
-              <Grid item xs={4} sm={3} md={2}>
+              <Grid size={{ xs: 4, sm: 3, md: 2 }}>
                 <Description icon={<FindInPageIcon />} descriptionText='Sources' />
               </Grid>
-              <Grid item xs={8} sm={9} md={10}>
+              <Grid size={{ xs: 8, sm: 9, md: 10 }}>
                 <LinkList list={referenceLinks} />
               </Grid>
-              <Grid item xs={4} sm={3} md={2}>
+              <Grid size={{ xs: 4, sm: 3, md: 2 }}>
                 <Description icon={<WebIcon />} descriptionText='Website' />
               </Grid>
-              <Grid item xs={8} sm={9} md={10}>
+              <Grid size={{ xs: 8, sm: 9, md: 10 }}>
                 <LinkRenderer href={projectLink.url}>
                   {projectLink.name}
                 </LinkRenderer>

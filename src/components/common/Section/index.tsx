@@ -36,7 +36,7 @@ const Section = ({ id, title, backgroundColor, scrollRef, children }: Props) => 
 
   return (
     <div className={classes.root}>
-      <Box id={id} mx={4} pb={6} ref={scrollRef}>
+      <Box id={id} sx={{ mx: 4, pb: 6 }} ref={scrollRef}>
         <Title title={title} whiteTitle={Boolean(backgroundColor)} />
 
         {children}

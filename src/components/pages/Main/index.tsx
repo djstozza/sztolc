@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, type RefObject } from 'react'
 import { Box } from '@mui/material'
 import { Scrollspy } from '@makotot/ghostui'
 
@@ -38,10 +38,10 @@ const Main = ({ data, menuOpen, setMenuOpen }: Props) => {
   const { basicInfo, about, experience, projects, skills } = data
 
   return (
-    <Scrollspy sectionRefs={refs}>
+    <Scrollspy sectionRefs={refs as RefObject<Element>[]}>
       {
         ({ currentElementIndexInViewport }) => (
-          <Box overflow='hidden'>
+          <Box sx={{ overflow: 'hidden' }}>
             <Header
               {...basicInfo}
               refs={refs}

@@ -25,7 +25,7 @@ const Projects = ({ id, title, projects, scrollRef }: Props) => {
       <Grid container spacing={1}>
         {
           projects.map(({ id: projectId, title: projectTitle, images }, i) => (
-            <Grid key={i} item md={6} sm={12}>
+            <Grid key={i} size={{ sm: 12, md: 6 }}>
               <Link to={`/projects/${projectId}`}>
                 <img src={images[0]} alt={projectTitle} className={classes.image} />
                 <Typography align='center'>{projectTitle}</Typography>

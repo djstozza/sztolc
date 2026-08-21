@@ -122,7 +122,7 @@ const Header = ({
             {name}
           </Typography>
 
-          <Box mt={2} ml={1}>
+          <Box sx={{ mt: 2, ml: 1 }}>
             {
               social.map(({ name, url, icon }) => (
                 <a key={name} href={url} target='_blank' className={classes.networkLink} rel='noopener noreferrer'>
@@ -139,7 +139,7 @@ const Header = ({
           {
             contents.map(({ id, title, icon }, i) => (
               <li key={i}>
-                <Box mb={1}>
+                <Box sx={{ mb: 1 }}>
                   <ContentsItem
                     condition={Boolean(refs.length)}
                     linkWrapper={(children) => <a className={classes.navLink} href={`/#${id}`}>{children}</a>}
